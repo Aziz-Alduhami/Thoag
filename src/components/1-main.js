@@ -4,6 +4,7 @@ import styled from "styled-components";
 import BgImg from '../images/bgImage.jpg'
 import AppleIcon from '../images/icons8-apple-filled-50.png'
 import AndroidIcon from '../images/icons8-android-os-52.png'
+import AppleAppStoreImage from '../images/apple-app-store.svg'
 
 
 /* Depending on the brower language choose on the two objects */
@@ -89,7 +90,7 @@ export default class Main extends Component {
           </ModalContainer>
           <div style={{padding: "1.5%", textAlign:"right"}}>
             <a href={iOS_URL}     style={{textDecoration: "none",color:"rgb(33, 33, 33)"}} target="_blank">
-              <BtniOS isRTL={this.state.isMainStateRTL}>{EnglishHTML.button_iOS}</BtniOS></a>
+              <BtniOS isRTL={this.state.isMainStateRTL}></BtniOS></a>
             {" "}
             <a href={Android_URL} style={{textDecoration: "none",color:"rgb(33, 33, 33)"}} target="_blank">
               <BtnAndroid isRTL={this.state.isMainStateRTL}>{EnglishHTML.button_Android}</BtnAndroid></a>
@@ -168,31 +169,54 @@ const BtnQuotation = styled.button`
     }
 `;
 
+
+
 const BtniOS = styled.button`
-    direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
-    opacity: 0.6;
-    color:rgb(33, 33, 33);
-    width: 220px;
-    height: 50px;
+    /*Bg and Border */
+    background:       url(${AppleAppStoreImage}) no-repeat;
+    background-size:  cover;
+    border:           none;
+    border-radius:    3px;
+    /* Size */
+
+    height: 100%;
     position: relative;
-    font-size: 1.1em;
-    font-weight: 600;
-    padding: 9px 15px 7px 50px;   
-    background: url(${AppleIcon});
-    background-color: #ffffff;
-    background-size: 37px;
-    background-position: 8px 6px;
-    background-repeat: no-repeat;
-    border: none;
-    border-radius: 3px;
+    padding: 9px 15px 7px 50px;
+    /* Effects */
+    opacity: 0.6;
     transition: opacity 0.5s ease;
     &:hover{
-      opacity: 1;
+       opacity: 1;
     }
     &:hover, &:visited, &:link, &:active{
       text-decoration: none;
     }
 `;
+// const BtniOS = styled.button`
+//     direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
+//     opacity: 0.6;
+//     color:rgb(33, 33, 33);
+//     width: 220px;
+//     height: 50px;
+//     position: relative;
+//     font-size: 1.1em;
+//     font-weight: 600;
+//     padding: 9px 15px 7px 50px;   
+//     background: url(${AppleIcon});
+//     background-color: #ffffff;
+//     background-size: 37px;
+//     background-position: 8px 6px;
+//     background-repeat: no-repeat;
+//     border: none;
+//     border-radius: 3px;
+//     transition: opacity 0.5s ease;
+//     &:hover{
+//       opacity: 1;
+//     }
+//     &:hover, &:visited, &:link, &:active{
+//       text-decoration: none;
+//     }
+// `;
 const BtnAndroid = styled.button`
     direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
     opacity: 0.6;
