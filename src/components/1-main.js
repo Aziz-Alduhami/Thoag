@@ -4,7 +4,8 @@ import styled from "styled-components";
 import BgImg from '../images/bgImage.jpg'
 import AppleIcon from '../images/icons8-apple-filled-50.png'
 import AndroidIcon from '../images/icons8-android-os-52.png'
-import AppleAppStoreImage from '../images/apple-app-store.svg'
+import AppleAppStoreImage from '../images/main/App_Store_Badge_EN.svg'
+import GooglePlayImage from '../images/main/google-play-badge-EN.png'
 
 
 /* Depending on the brower language choose on the two objects */
@@ -64,13 +65,13 @@ export default class Main extends Component {
                 <Modal isRTL={this.state.isMainStateRTL}/>
             </MContent>
           </ModalContainer>
-          <div style={{padding: "1.5%", textAlign:"left"}}>
-            <a href={iOS_URL}     style={{textDecoration: "none",color:"rgb(33, 33, 33)"}} target="_blank">
-              <BtniOS isRTL={this.state.isMainStateRTL}>{ArabicHTML.button_iOS}</BtniOS></a>
+          <ButtonsGroup isRTL={this.state.isMainStateRTL}>
+            <a href={iOS_URL} target="_blank">
+              <Button src={AppleAppStoreImage}></Button></a>
             {" "}
-            <a href={Android_URL} style={{textDecoration: "none",color:"rgb(33, 33, 33)"}} target="_blank">
-              <BtnAndroid isRTL={this.state.isMainStateRTL}>{ArabicHTML.button_Android}</BtnAndroid></a>
-          </div>
+            <a href={Android_URL} target="_blank">
+              <Button src={GooglePlayImage}></Button></a>
+          </ButtonsGroup>
         </MainContainer>
       )
     }
@@ -88,13 +89,13 @@ export default class Main extends Component {
                 <Modal isRTL={this.state.isMainStateRTL}/>
             </MContent>
           </ModalContainer>
-          <div style={{padding: "1.5%", textAlign:"right"}}>
-            <a href={iOS_URL}     style={{textDecoration: "none",color:"rgb(33, 33, 33)"}} target="_blank">
-              <BtniOS isRTL={this.state.isMainStateRTL}></BtniOS></a>
+          <ButtonsGroup isRTL={this.state.isMainStateRTL}>
+            <a href={iOS_URL} target="_blank">
+              <Button src={AppleAppStoreImage}></Button></a>
             {" "}
-            <a href={Android_URL} style={{textDecoration: "none",color:"rgb(33, 33, 33)"}} target="_blank">
-              <BtnAndroid isRTL={this.state.isMainStateRTL}>{EnglishHTML.button_Android}</BtnAndroid></a>
-          </div>
+            <a href={Android_URL} target="_blank">
+              <Button src={GooglePlayImage}></Button></a>
+          </ButtonsGroup>
         </MainContainer>
       )
     }
@@ -169,27 +170,34 @@ const BtnQuotation = styled.button`
     }
 `;
 
+const ButtonsGroup = styled.div`
+    padding:          1.5%;
+    text-align:       ${props => props.isRTL? "left" : "right"};
+    @media screen and (max-width: 500px) {
+      text-align:       center;
+      
+    }
+`;
 
-
-const BtniOS = styled.button`
-    /*Bg and Border */
-    background:       url(${AppleAppStoreImage}) no-repeat;
-    background-size:  cover;
-    border:           none;
-    border-radius:    3px;
+const Button = styled.img`
     /* Size */
-
-    height: 100%;
-    position: relative;
-    padding: 9px 15px 7px 50px;
+    max-width:15%;
+    max-height:15%;
+    width: auto;
+    height: auto;
     /* Effects */
     opacity: 0.6;
     transition: opacity 0.5s ease;
     &:hover{
        opacity: 1;
     }
-    &:hover, &:visited, &:link, &:active{
-      text-decoration: none;
+    @media screen and (max-width: 500px) {
+        top:              1.5vh;
+        position:         relative;
+        max-width:        40%;
+        max-height:       40%;
+        width:            auto;
+        height:           auto;
     }
 `;
 // const BtniOS = styled.button`
@@ -217,31 +225,19 @@ const BtniOS = styled.button`
 //       text-decoration: none;
 //     }
 // `;
-const BtnAndroid = styled.button`
-    direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
-    opacity: 0.6;
-    color:rgb(33, 33, 33);
-    width: 220px;
-    height: 50px;
-    position: relative;
-    font-size: 1.1em;
-    font-weight: 600;
-    padding: 9px 15px 7px 50px;
-    background: url(${AndroidIcon});
-    background-color: #ffffff;
-    background-size: 37px;
-    background-position: 8px 6px;
-    background-repeat: no-repeat;
-    border: none;
-    border-radius: 3px;
-    transition: opacity 0.5s ease;
-    &:hover{
-      opacity: 1;
-    }
-    &:hover, &:visited, &:link, &:active{
-      text-decoration: none;
-    }
-`;
+// const BtnAndroid = styled.img`
+//     /* Size */
+//     max-width:15%;
+//     max-height:15%;
+//     width: auto;
+//     height: auto;
+//     /* Effects */
+//     opacity: 0.6;
+//     transition: opacity 0.5s ease;
+//     &:hover{
+//        opacity: 1;
+//     }
+// `;
 
 
 
