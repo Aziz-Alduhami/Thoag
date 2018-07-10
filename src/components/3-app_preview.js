@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
+import {H1, P} from '../styles/Mystyles'
+
 import iphoneImg from '../images/app preview/iphoneimg.png'
 
 
@@ -78,72 +80,76 @@ class App_Feature extends Component {
 
 /* CSS Styled Components Only Below this comment*/
 const AppPreviewImage = styled.img`
-width: auto;
-height: auto;
-      position: fixed;
-    top: 12%;
-    left: 2%;
+  width:                auto;
+  height:               auto;
 `;
-const AppFeatureNumber = styled.h3`
-  font-size: 40px;
+const AppFeatureNumber = styled(P)`
+  font-size:            x-large;
+  text-transform:       initial;
+  font-weight:          bold;
 `;
-const AppFeatureTitle = styled.h3`
-margin-top: -30px;
+const AppFeatureTitle = styled(P)`
+  margin-top:           -30px;
+  font-size:            x-large;
+  text-transform:       initial;
+  font-weight:          bold;
 `;
 const AppFeatureSubTitle = styled.p`
-  margin-top: -26px;
+  margin-top:           -26px;
 `;
 
 const Grid = styled.section.attrs({
   id: "app-preview"
 })`
-
-  overflow:       hidden;
-  padding-right:  10%;
-  padding-left:   10%;
-  padding-top:    100px;
-  margin-top:     -50px;
+  box-sizing:           inherit;
+  overflow:             hidden;
+  padding-right:        10%;
+  padding-left:         10%;
+  padding-top:          100px;
+  margin-top:           -50px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns:  1fr 1fr 1fr;
+  grid-template-rows:     1fr 1fr 1fr;
   grid-template-areas:  "Feature_01 MobileImage Feature_04" 
                         "Feature_02 MobileImage Feature_05" 
                         "Feature_03 MobileImage Feature_06";
 
   @media screen and (max-width: 500px) {
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:  "MobileImage Feature_01" 
-                          "MobileImage Feature_02" 
-                          "MobileImage Feature_03" 
-                          "MobileImage Feature_04" 
-                          "MobileImage Feature_05" 
-                          "MobileImage Feature_06";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas:  "Feature_01" 
+                          "Feature_02" 
+                          "Feature_03" 
+                          "Feature_04" 
+                          "Feature_05" 
+                          "Feature_06";
   }
 `;
 const MobileImage = styled.div`
-  grid-area: MobileImage;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  grid-area:          MobileImage;
+  margin-left:        auto;
+  margin-right:       auto;
+  @media screen and (max-width: 500px) {
+        display:         none;
+  }
 `;
 const Feature_01  = styled.div`
-  grid-area: Feature_01;
+  grid-area:          Feature_01;
   
 `;
 const Feature_02 = styled.div`
-  grid-area: Feature_02;
+  grid-area:          Feature_02;
 `;
 const Feature_03 = styled.div`
-  grid-area: Feature_03;
+  grid-area:          Feature_03;
 `;
 const Feature_04 = styled.div`
-  grid-area: Feature_04;
+  grid-area:          Feature_04;
 `;
 const Feature_05 = styled.div`
-  grid-area: Feature_05;
+  grid-area:          Feature_05;
 `;
 const Feature_06 = styled.div`
-  grid-area: Feature_06;
+  grid-area:          Feature_06;
 `;
