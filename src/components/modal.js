@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
+// import { Check } from '../../node_modules/styled-icons/feather';
 
 
 const ArabicHTML_Modal = { tile: "دعونا نعمل معا",
@@ -87,10 +88,11 @@ export default class Modal extends Component {
                     {ArabicHTML_Location.map((index) => <option key={index} value={index}>{index}</option>)}
                     </Select>
                     <br/>
-                    <P>{ArabicHTML_EventType[0]}</P>
-                    <Input type="checkbox" isRTL={this.props.isRTL} value={ArabicHTML_EventType[1]}/>{ArabicHTML_EventType[1]}<br/>
-                    <Input type="checkbox" isRTL={this.props.isRTL} value={ArabicHTML_EventType[2]}/>{ArabicHTML_EventType[2]}<br/>
-                    <Input />>
+
+                    <Label isRTL={this.props.isRTL}>{ArabicHTML_EventType[0]}</Label>
+                    <input type="checkbox" isRTL={this.props.isRTL} value={ArabicHTML_EventType[1]}/>{ArabicHTML_EventType[1]}<br/>
+                    <input type="checkbox" isRTL={this.props.isRTL} value={ArabicHTML_EventType[2]}/>{ArabicHTML_EventType[2]}<br/>
+                    <Input placeholder={ArabicHTML_Modal.details}/>
                     <Submit type="submit" value="اطلب" />
                 </form>
             </div>
@@ -124,12 +126,15 @@ export default class Modal extends Component {
                     <Select name="location">
                     {EnglishHTML_Location.map((index) => <option key={index} value={index}>{index}</option>)}
                     </Select>
-        
-                    <P>{EnglishHTML_EventType[0]}</P>
-                    {/* To DO */}
-                    <Input type="checkbox" isRTL={this.props.isRTL} value={EnglishHTML_EventType[1]}/>{EnglishHTML_EventType[1]}<br/>
-                    <Input type="checkbox" isRTL={this.props.isRTL} value={EnglishHTML_EventType[2]}/>{EnglishHTML_EventType[2]}<br/>
-                    <Input />
+
+										<Event isRTL={this.props.isRTL}>
+											<Label>{EnglishHTML_EventType[0]}</Label><br />
+											<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[1]} </Label>	<br />								
+											<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[2]} </Label>
+										</Event>           	
+
+                    <TextArea rows="3" placeholder={EnglisHTML_Modal.details}/>
+
                     <Submit type="submit" value="Request" />
                 </form>
             </div>
@@ -166,13 +171,9 @@ const SubText = styled.p`
 
 
   /* Modal CSS */
-const P = styled.p`
-    align: ${props => props.isRTL ? 'right' : 'left'};
-    direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
-    margin-bottom: 15px;
 
-`;
 const Input = styled.input`
+box-sizing:     border-box;
 ${'' /* text-align: ${props => props.isRTL ? 'right' : 'left'}; */}
 margin-bottom: 15px;
 padding: 5px 15px 15px 5px;
@@ -182,14 +183,11 @@ cursor: auto;
 border: 1px solid #e6e6e6;
 border-radius: 3px;
 width: 40%;
-[type=checkbox]{
-  color: red;
-}
-
 `;
 
 
 const Select = styled.select`
+display: inline-block;
 margin-bottom: 15px;
 padding: 5px 15px 15px 5px;
 margin: 0.5%;
@@ -201,13 +199,45 @@ width: 40%;
 `;
 
 
-const Submit = styled.input`
-padding: 5px 15px 15px 5px;
-color: #fff;
-background: #C12336;
-cursor: auto;
+const Event = styled.div`
+box-sizing:     border-box;
+text-align:     ${props => props.isRTL ? 'right' : 'left'};
+display: inline-block;
+		margin-left: 0.5%;
+		margin-right: 0.5%;
+		padding: 0 15px 0 5px;
+		cursor: auto;
+		width: 40%;
+`;
+
+const Label = styled.label`
+		
+    text-align: ${props => props.isRTL ? 'right' : 'left'};
+    direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
+    
+`;
+const Checkbox = styled.input`
+    text-align: ${props => props.isRTL ? 'right' : 'left'};
+    direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
+`;
+
+const TextArea = styled.textarea`
+	height: auto;
+		cursor: auto;
+		width: 81%;
+margin-bottom: 15px;
+background-color: #f3f3f3;
 border: 1px solid #e6e6e6;
 border-radius: 3px;
-width: 100%;
+`;
+
+const Submit = styled.input`
+	padding: 5px 15px 15px 5px;
+	color: #fff;
+	background: #C12336;
+	cursor: auto;
+	border: 1px solid #e6e6e6;
+	border-radius: 3px;
+	width: 81.5%;
 
 `;
