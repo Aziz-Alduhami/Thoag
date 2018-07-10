@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
-
+/**Components */
 import Modal from './modal'
-import {Button, H1} from '../styles/Mystyles'
+import {ImgButton, H1, P} from '../styles/Mystyles'
+/**Images */
 import BgImg from '../images/bgImage.jpg'
-import AppleIcon from '../images/icons8-apple-filled-50.png'
-import AndroidIcon from '../images/icons8-android-os-52.png'
 import AppleAppStoreImage from '../images/main/App_Store_Badge_EN.svg'
 import GooglePlayImage from '../images/main/google-play-badge-EN.png'
 
@@ -54,26 +53,31 @@ export default class Main extends Component {
     if(this.state.isMainStateRTL){
       return(
         <MainContainer id="main" isRTL={this.state.isMainStateRTL}>
+
             <TextContainer>
-              <H1>{ArabicHTML.main_text}</H1>
-              <MainSubText>{ArabicHTML.sub_text}</MainSubText>
+              <Text>{ArabicHTML.main_text}</Text>
+              <SubText>{ArabicHTML.sub_text}</SubText>
             </TextContainer>
+            
           <BtnQuotation onClick={this.openModal}>
             {ArabicHTML.button_getPrice}
           </BtnQuotation>
+
           <ModalContainer display={this.state.display} isRTL={this.state.isMainStateRTL}>
             <MContent>
               <Close onClick={this.closeModal} isRTL={this.state.isMainStateRTL}>&times;</Close>
                 <Modal isRTL={this.state.isMainStateRTL}/>
             </MContent>
           </ModalContainer>
+
           <ButtonsGroup isRTL={this.state.isMainStateRTL}>
             <a href={iOS_URL} target="_blank">
-              <Button src={AppleAppStoreImage}></Button></a>
+              <ImgButton src={AppleAppStoreImage}></ImgButton></a>
             {" "}
             <a href={Android_URL} target="_blank">
-              <Button src={GooglePlayImage}></Button></a>
+              <ImgButton src={GooglePlayImage}></ImgButton></a>
           </ButtonsGroup>
+          
         </MainContainer>
       )
     }
@@ -81,23 +85,27 @@ export default class Main extends Component {
       return(
         <MainContainer id="main" isRTL={this.state.isMainStateRTL}>
             <TextContainer>
-              <H1>{EnglishHTML.main_text}</H1>
-              <MainSubText>{EnglishHTML.sub_text}</MainSubText>
+              <Text>{EnglishHTML.main_text}</Text>
+              <SubText>{EnglishHTML.sub_text}</SubText>
             </TextContainer>
+
           <BtnQuotation onClick={this.openModal}>{EnglishHTML.button_getPrice}</BtnQuotation>
+
           <ModalContainer display={this.state.display} isRTL={this.state.isMainStateRTL}>
             <MContent >
               <Close onClick={this.closeModal} isRTL={this.state.isMainStateRTL} >&times;</Close>
                 <Modal isRTL={this.state.isMainStateRTL}/>
             </MContent>
           </ModalContainer>
+
           <ButtonsGroup isRTL={this.state.isMainStateRTL}>
             <a href={iOS_URL} target="_blank">
-              <Button src={AppleAppStoreImage}></Button></a>
+              <ImgButton src={AppleAppStoreImage}></ImgButton></a>
             {" "}
             <a href={Android_URL} target="_blank">
-              <Button src={GooglePlayImage}></Button></a>
+              <ImgButton src={GooglePlayImage}></ImgButton></a>
           </ButtonsGroup>
+
         </MainContainer>
       )
     }
@@ -129,22 +137,13 @@ const TextContainer = styled.div`
     }
 `;
 
-// const MainText = styled.h1`
-//     color:            white;
-//     display:          inline-block;
-//     font-family:      "Noto Sans", sans-serif;
-//     font-size:        x-large;
-//     font-weight:      600;
-//     left:             0;       
-//     text-transform:   uppercase;      
+ const Text = styled(H1)`
+    color:          white;
+ `;
 
-// `;
-
-const MainSubText = styled.p`
-    color:            white;
-    font-family:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
-    font-size:        large;
-`;
+ const SubText = styled(P)`
+    color:          white;
+ `;
 
 const BtnQuotation = styled.button`
     /*Text */
@@ -176,112 +175,65 @@ const ButtonsGroup = styled.div`
     padding:          1.5%;
     text-align:       ${props => props.isRTL? "left" : "right"};
     @media screen and (max-width: 500px) {
-      text-align:       center;
+      text-align:         center;
       
     }
 `;
 
-// const Button = styled.img`
-//     /* Size */
-//     max-width:15%;
-//     max-height:15%;
-//     width: auto;
-//     height: auto;
-//     /* Effects */
-//     opacity: 0.6;
-//     transition: opacity 0.5s ease;
-//     &:hover{
-//        opacity: 1;
-//     }
-//     @media screen and (max-width: 500px) {
-//         top:              1.5vh;
-//         position:         relative;
-//         max-width:        40%;
-//         max-height:       40%;
-//         width:            auto;
-//         height:           auto;
-//     }
-// `;
-// const BtniOS = styled.button`
-//     direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
-//     opacity: 0.6;
-//     color:rgb(33, 33, 33);
-//     width: 220px;
-//     height: 50px;
-//     position: relative;
-//     font-size: 1.1em;
-//     font-weight: 600;
-//     padding: 9px 15px 7px 50px;   
-//     background: url(${AppleIcon});
-//     background-color: #ffffff;
-//     background-size: 37px;
-//     background-position: 8px 6px;
-//     background-repeat: no-repeat;
-//     border: none;
-//     border-radius: 3px;
-//     transition: opacity 0.5s ease;
-//     &:hover{
-//       opacity: 1;
-//     }
-//     &:hover, &:visited, &:link, &:active{
-//       text-decoration: none;
-//     }
-// `;
-// const BtnAndroid = styled.img`
-//     /* Size */
-//     max-width:15%;
-//     max-height:15%;
-//     width: auto;
-//     height: auto;
-//     /* Effects */
-//     opacity: 0.6;
-//     transition: opacity 0.5s ease;
-//     &:hover{
-//        opacity: 1;
-//     }
-// `;
-
-
 
 const ModalContainer = styled.div`
-  text-align: center;
-  display: none; 
-  position: fixed; 
-  z-index: 10000;
-  padding-top: 100px;
-  padding-left: 10%;
-  padding-right: 10%;
-  border: none;
+    text-align:         center;
+    display:            none; 
+    position:           fixed; 
+    z-index:            10;
+    padding-top:        100px;
+    padding-left:       10%;
+    padding-right:      10%;
+    border:             none;
 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%;
+    left:               0;
+    top:                0;
+    width:              100%; 
+    height:             100%;
 
-  overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4); 
-  transition: background-color 0.5s ease;
-  display:  ${props => props.display? "block" : "none"}
+    overflow:           auto; 
+    background-color:   rgb(0,0,0);
+    background-color:   rgba(0,0,0,0.4); 
+    transition:         background-color 0.5s ease;
+    display:            ${props => props.display? "block" : "none"};
+    @media screen and (max-width: 500px) {
+      padding-left:       5%;
+      padding-right:      5%;
+    }
 `;
 
 const MContent = styled.div`
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+    background-color:   #fefefe;
+    margin:             auto;
+    padding:            20px;
+    border:             none;
+    border-radius:      3px;
+    width:              80%;
+    @media screen and (max-width: 500px) {
+      width:              100%;
+      padding:            0;
+    }
 `;
 
 const Close = styled.span`
-  color: #aaaaaa;
-  float: ${props => props.isRTL? "left" : "right"};
-  font-size: 28px;
-  font-weight: bold;
+    color:              rgb(170, 170, 170);
+    float:              ${props => props.isRTL? "left" : "right"};
+    font-size:          xx-large;
+    font-weight:        bold;
 
-  &:hover,&:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+    &:hover,&:focus {
+      color:               black;
+      text-decoration:     none;
+      cursor:              pointer;
+    }
+    @media screen and (max-width: 500px) {
+      font-size:           xx-large;
+      padding-right:       2vw;
+      padding-left:        2vw;
+    }
 `;

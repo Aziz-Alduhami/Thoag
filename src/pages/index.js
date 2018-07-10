@@ -83,7 +83,7 @@ const Nav = styled.div`
   position:     fixed;
   width:        100%;
   top:          0;
-  z-index:      100;
+  z-index:      10;
   transition:   background-color 0.5s ease;
 
   @media screen and (max-width: 500px) {

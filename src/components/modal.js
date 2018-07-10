@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
 
+import {H1, P, Input, Select} from '../styles/Mystyles'
+
 
 const ArabicHTML_Modal = { tile: "دعونا نعمل معا",
                   subtitle: "أخبرنا عن مناسبتك ، كيف يمكننا مساعدتك في الحصول على أفضل عرض للولائم؟",
@@ -54,93 +56,81 @@ const EnglishHTML_EventType = ["Select your preferred event type", "Outdoor Even
 
 
 export default class Modal extends Component {
-    constructor(props){
-      super(props);
+  constructor(props){
+    super(props);
+  }
+  // handleSubmit(event){}
+  render() {
+    if(this.props.isRTL){
+      return (
+        <div>
+          <TextContainer isRTL={this.props.isRTL}>
+          	<Text>{ArabicHTML_Modal.tile}</Text>
+            <SubText>{ArabicHTML_Modal.subtitle}</SubText>
+          </TextContainer>
+          <form onSubmit={this.handleSubmit}>
+          	<Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.firstName}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.lastName}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.email}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.mobile}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.timing}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.budget}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.guests}/>
+            
+						<Select name="menu"				>{ ArabicHTML_MenuReq.map( (index) 		=> <option key={index} value={index}>{index}</option> ) }</Select>
+            <Select name="speial-req"	>{ ArabicHTML_SpecialReq.map( (index) => <option key={index} value={index}>{index}</option> ) }</Select>
+        		<Select name="how"				>{ ArabicHTML_HowDidYou.map((index) 	=> <option key={index} value={index}>{index}</option> ) }</Select>
+            <Select name="location"		>{ ArabicHTML_Location.map( (index) 	=> <option key={index} value={index}>{index}</option> ) }</Select>
+
+            <EventType isRTL={this.props.isRTL}>
+							<Label>{ArabicHTML_EventType[0]}</Label><br />
+							<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {ArabicHTML_EventType[1]} </Label><br />								
+							<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {ArabicHTML_EventType[2]} </Label>
+						</EventType> 
+
+						<TextArea rows="3" placeholder={ArabicHTML_Modal.details}/>
+
+            <Submit type="submit" value="اطلب" />
+          </form>
+        </div>
+      )
     }
-    // handleSubmit(event){}
-    render() {
-      if(this.props.isRTL){
-        return (
-            <div>
-                <TextContainer isRTL={this.props.isRTL}>
-                    <Text>{ArabicHTML_Modal.tile}</Text>
-                    <SubText>{ArabicHTML_Modal.subtitle}</SubText>
-                </TextContainer>
-                <form onSubmit={this.handleSubmit}>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.firstName}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.lastName}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.email}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.mobile}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.timing}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.budget}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.guests}/>
-                    <Select name="menu">
-                    {ArabicHTML_MenuReq.map((index) => <option key={index} value={index}>{index}</option>)}
-                    </Select>
-                    <Select name="speial-req">
-                    {ArabicHTML_SpecialReq.map((index) => <option key={index} value={index}>{index}</option>)}
-                    </Select>
-                    <Select name="how">
-                    {ArabicHTML_HowDidYou.map((index) => <option key={index} value={index}>{index}</option>)}
-                    </Select>
-                    <Select name="location">
-                    {ArabicHTML_Location.map((index) => <option key={index} value={index}>{index}</option>)}
-                    </Select>
-                    <br/>
-
-                    <Label isRTL={this.props.isRTL}>{ArabicHTML_EventType[0]}</Label>
-                    <input type="checkbox" isRTL={this.props.isRTL} value={ArabicHTML_EventType[1]}/>{ArabicHTML_EventType[1]}<br/>
-                    <input type="checkbox" isRTL={this.props.isRTL} value={ArabicHTML_EventType[2]}/>{ArabicHTML_EventType[2]}<br/>
-                    <Input placeholder={ArabicHTML_Modal.details}/>
-                    <Submit type="submit" value="اطلب" />
-                </form>
-            </div>
-        )
-      }
-      else{
-        return (
-            <div>
-                <TextContainer isRTL={this.props.isRTL}>
-                    <Text>{EnglisHTML_Modal.tile}</Text>
-                    <SubText>{EnglisHTML_Modal.subtitle}</SubText>
-                </TextContainer>
-                <form onSubmit={this.handleSubmit}>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.mobile}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.timing}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.budget}/>
-                    <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.guests}/>
+    else{
+      return (
+        <div>
+          <TextContainer isRTL={this.props.isRTL}>
+            <Text>{EnglisHTML_Modal.tile}</Text>
+            <SubText>{EnglisHTML_Modal.subtitle}</SubText>
+          </TextContainer>
+          <form onSubmit={this.handleSubmit}>
+          	<Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.mobile}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.timing}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.budget}/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.guests}/>
         
-                    <Select name="menu">
-                    {EnglishHTNL_MenuReq.map((index) => <option key={index} value={index}>{index}</option>)}
-                    </Select>
-                    <Select name="speial-req">
-                    {English_HTML_SpecialReq.map((index) => <option key={index} value={index}>{index}</option>)}
-                    </Select>
-                    <Select name="how">
-                    {EnglishHTML_HowDidYou.map((index) => <option key={index} value={index}>{index}</option>)}
-                    </Select>
-                    <Select name="location">
-                    {EnglishHTML_Location.map((index) => <option key={index} value={index}>{index}</option>)}
-                    </Select>
+            <Select name="menu"				>{ EnglishHTNL_MenuReq.map( (index) 		=> <option key={index} value={index}>{index}</option> ) }</Select>
+            <Select name="speial-req"	>{ English_HTML_SpecialReq.map( (index) => <option key={index} value={index}>{index}</option> ) }</Select>
+        		<Select name="how"				>{ EnglishHTML_HowDidYou.map((index) 		=> <option key={index} value={index}>{index}</option> ) }</Select>
+            <Select name="location"		>{ EnglishHTML_Location.map( (index) 		=> <option key={index} value={index}>{index}</option> ) }</Select>
 
-										<Event isRTL={this.props.isRTL}>
-											<Label>{EnglishHTML_EventType[0]}</Label><br />
-											<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[1]} </Label>	<br />								
-											<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[2]} </Label>
-										</Event>           	
+						<EventType isRTL={this.props.isRTL}>
+							<Label>{EnglishHTML_EventType[0]}</Label><br />
+							<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[1]} </Label>	<br />								
+							<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[2]} </Label>
+						</EventType>           	
 
-                    <TextArea rows="3" placeholder={EnglisHTML_Modal.details}/>
+            <TextArea rows="3" placeholder={EnglisHTML_Modal.details}/>
 
-                    <Submit type="submit" value="Request" />
-                </form>
-            </div>
-        )
-      }
+            <Submit type="submit" value="Request" />
+          </form>
+        </div>
+      )
     }
   }
+}
 
 
 
@@ -152,90 +142,81 @@ const TextContainer = styled.div`
     left:           0;
 `;
 
-const Text = styled.h2`
-  color:          rgb(54, 54, 54);
-  font-size:      30px;
-  font-weight:    700;
-  box-sizing:     border-box;
+const Text = styled(H1)`
+		font-size:      xx-large;
+		font-weight:    700;
+		box-sizing:     border-box;
+		@media screen and (max-width: 500px) {
+				padding-left:		5%;
+				padding-right:	5%;
+		}
 `;
-const SubText = styled.p`
-  color:          rgb(98, 98, 98);
-  font-size:      20px;
-  font-weight:    400;
-  box-sizing:     border-box;
-  font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
-`;
-
-
-
-
-  /* Modal CSS */
-
-const Input = styled.input`
-box-sizing:     border-box;
-${'' /* text-align: ${props => props.isRTL ? 'right' : 'left'}; */}
-margin-bottom: 15px;
-padding: 5px 15px 15px 5px;
-margin: 0.5%;
-background-color: #f3f3f3;
-cursor: auto;
-border: 1px solid #e6e6e6;
-border-radius: 3px;
-width: 40%;
+const SubText = styled(P)`
+		box-sizing:     border-box;
+		@media screen and (max-width: 500px) {
+				padding-left:		5%;
+				padding-right:	5%;
+		}
 `;
 
-
-const Select = styled.select`
-display: inline-block;
-margin-bottom: 15px;
-padding: 5px 15px 15px 5px;
-margin: 0.5%;
-background-color: #f3f3f3;
-cursor: auto;
-border: 1px solid #e6e6e6;
-border-radius: 3px;
-width: 40%;
-`;
-
-
-const Event = styled.div`
-box-sizing:     border-box;
-text-align:     ${props => props.isRTL ? 'right' : 'left'};
-display: inline-block;
-		margin-left: 0.5%;
-		margin-right: 0.5%;
-		padding: 0 15px 0 5px;
-		cursor: auto;
-		width: 40%;
+const EventType = styled.div`
+		box-sizing:     border-box;
+		text-align:     ${props => props.isRTL ? 'right' : 'left'};
+		display: 				inline-block;
+		margin-left:		0.5%;
+		margin-right: 	0.5%;
+		padding: 				0 15px 0 5px;
+		cursor: 				auto;
+		width: 					40%;
+		@media screen and (max-width: 500px) {
+				width: 						90%;
+		}
 `;
 
 const Label = styled.label`
-		
-    text-align: ${props => props.isRTL ? 'right' : 'left'};
-    direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
+    text-align: 		${props => props.isRTL ? 'right' : 'left'};
+    direction:      ${props => props.isRTL ? 'rtl' : 'ltr'};
     
 `;
 const Checkbox = styled.input`
-    text-align: ${props => props.isRTL ? 'right' : 'left'};
-    direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
+    text-align: 		${props => props.isRTL ? 'right' : 'left'};
+    direction:      ${props => props.isRTL ? 'rtl' : 'ltr'};
 `;
 
 const TextArea = styled.textarea`
-	height: auto;
-		cursor: auto;
-		width: 81%;
-margin-bottom: 15px;
-background-color: #f3f3f3;
-border: 1px solid #e6e6e6;
-border-radius: 3px;
+		height: 				auto;
+		cursor: 				auto;
+		width: 					81%;
+		margin-bottom: 	15px;
+		background-color: #f3f3f3;
+		border: 				1px solid #e6e6e6;
+		border-radius: 	3px;
+		@media screen and (max-width: 500px) {
+				width: 						90%;
+		}
 `;
 
 const Submit = styled.input`
-	padding: 5px 15px 15px 5px;
-	color: #fff;
-	background: #C12336;
-	cursor: auto;
-	border: 1px solid #e6e6e6;
-	border-radius: 3px;
-	width: 81.5%;
+		/*Text */
+		color:            white;
+    font-size:        large;
+    font-weight:      600;
+    /*Bg and Border */
+    background-color: rgb(193, 35, 54);
+    border:           none;
+    border-radius:    3px;
+    /* Size */
+    margin-bottom:    5%;
+    width: 						81%;
+    height:           50px;
+    /* Effects */
+    transition:       background-color 0.5s ease;
+
+    &:hover{
+      background-color: #db0620;
+    }
+    @media screen and (max-width: 500px) {
+
+        width:            90%;
+    }
 `;
