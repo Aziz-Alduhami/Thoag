@@ -11,8 +11,8 @@ import styled from "styled-components"
 import LogoImage from '../images/logo.png'
 
 
-const ArabicHTML = {home:"الرئيسية" , about: "من نحن" , faq:"أسئلة شائعة" , joinUs: "انضمام مقدمي الخدمة", english: "English", arabic: "عربي"};
-const EnglishHTML = {home:"Main" , about: "About Us" , faq:"FAQ" , joinUs: "Join Us",english: "English", arabic: "عربي"};
+const ArabicHTML = {home:"الرئيسية" , about: "من نحن" , faq:"أسئلة شائعة" ,app_preview: "مميزات التطبيق", joinUs: "انضمام مقدمي الخدمة", english: "English", arabic: "عربي"};
+const EnglishHTML = {home:"Main" , about: "About Us" , faq:"FAQ" ,app_preview: "App Features", joinUs: "Join Us",english: "English", arabic: "عربي"};
 
 
 export default class IndexPage extends Component {
@@ -57,6 +57,7 @@ export default class IndexPage extends Component {
             <Button      onClick={this.changeToRTL} isRTL={this.state.isIndexStateRTL}>{EnglishHTML.arabic}</Button>
             <Button      onClick={this.changeToLTR} isRTL={this.state.isIndexStateRTL}>{EnglishHTML.english}</Button>
             <A  href="#join-us" isRTL={this.state.isIndexStateRTL}>{this.state.isIndexStateRTL? ArabicHTML.joinUs  : EnglishHTML.joinUs}</A>
+            <A  href="#app-preview"     isRTL={this.state.isIndexStateRTL}>{this.state.isIndexStateRTL? ArabicHTML.app_preview: EnglishHTML.app_preview}</A>
             <A  href="#faq"     isRTL={this.state.isIndexStateRTL}>{this.state.isIndexStateRTL? ArabicHTML.faq     : EnglishHTML.faq}</A>
             <A  href="#about"   isRTL={this.state.isIndexStateRTL}>{this.state.isIndexStateRTL? ArabicHTML.about   : EnglishHTML.about}</A>
             <A  href="#main"    isRTL={this.state.isIndexStateRTL}>{this.state.isIndexStateRTL? ArabicHTML.home    : EnglishHTML.home }</A>

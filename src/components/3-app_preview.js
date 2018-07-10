@@ -33,41 +33,32 @@ export default class AppPreview extends Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ isAppPreviewtStateRTL: nextProps.isRTL });
-    // console.log("about: isAppPreviewtStateRTL: " + this.state.isAppPreviewtStateRTL); 
   }
   render() {
     if(this.state.isAppPreviewtStateRTL){
       return(
-        <AppPreviewContainer id="app-preview">
-        <AppPreviewLeft>
-          <App_Feature number={ArabicHTML[0].number} title={ArabicHTML[0].title} content={ArabicHTML[0].content} />
-          <App_Feature number={ArabicHTML[1].number} title={ArabicHTML[1].title} content={ArabicHTML[1].content} />
-          <App_Feature number={ArabicHTML[2].number} title={ArabicHTML[2].title} content={ArabicHTML[2].content} />
-        </AppPreviewLeft>
-        <AppPreviewRight>
-          <App_Feature number={ArabicHTML[3].number} title={ArabicHTML[3].title} content={ArabicHTML[3].content} />
-          <App_Feature number={ArabicHTML[4].number} title={ArabicHTML[4].title} content={ArabicHTML[4].content} />
-          <App_Feature number={ArabicHTML[5].number} title={ArabicHTML[5].title} content={ArabicHTML[5].content} />
-        </AppPreviewRight>
-        <div style={{textAlign:"center"}}><AppPreviewImage src={iphoneImg}/></div>
-    </AppPreviewContainer>
+        <Grid>
+          <Feature_01><App_Feature number={ArabicHTML[0].number} title={ArabicHTML[0].title} content={ArabicHTML[0].content} /></Feature_01>
+          <Feature_02><App_Feature number={ArabicHTML[1].number} title={ArabicHTML[1].title} content={ArabicHTML[1].content} /></Feature_02>
+          <Feature_03><App_Feature number={ArabicHTML[2].number} title={ArabicHTML[2].title} content={ArabicHTML[2].content} /></Feature_03>
+          <MobileImage><AppPreviewImage src={iphoneImg}/></MobileImage>
+          <Feature_04><App_Feature number={ArabicHTML[3].number} title={ArabicHTML[3].title} content={ArabicHTML[3].content} /></Feature_04>
+          <Feature_05><App_Feature number={ArabicHTML[4].number} title={ArabicHTML[4].title} content={ArabicHTML[4].content} /></Feature_05>
+          <Feature_06><App_Feature number={ArabicHTML[5].number} title={ArabicHTML[5].title} content={ArabicHTML[5].content} /></Feature_06>
+        </Grid>
       )
     }
     else{
       return(
-        <AppPreviewContainer id="app-preview">
-        <AppPreviewLeft>
-          <App_Feature number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} />
-          <App_Feature number={EnglishHTML[1].number} title={EnglishHTML[1].title} content={EnglishHTML[1].content} />
-          <App_Feature number={EnglishHTML[2].number} title={EnglishHTML[2].title} content={EnglishHTML[2].content} />
-        </AppPreviewLeft>
-        <AppPreviewRight>
-          <App_Feature number={EnglishHTML[3].number} title={EnglishHTML[3].title} content={EnglishHTML[3].content} />
-          <App_Feature number={EnglishHTML[4].number} title={EnglishHTML[4].title} content={EnglishHTML[4].content} />
-          <App_Feature number={EnglishHTML[5].number} title={EnglishHTML[5].title} content={EnglishHTML[5].content} />
-        </AppPreviewRight>
-        <div style={{textAlign:"center"}}><AppPreviewImage src={iphoneImg}/></div>
-      </AppPreviewContainer>
+        <Grid>
+          <Feature_01><App_Feature number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} /></Feature_01>
+          <Feature_02><App_Feature number={EnglishHTML[1].number} title={EnglishHTML[1].title} content={EnglishHTML[1].content} /></Feature_02>
+          <Feature_03><App_Feature number={EnglishHTML[2].number} title={EnglishHTML[2].title} content={EnglishHTML[2].content} /></Feature_03>
+          <MobileImage><AppPreviewImage src={iphoneImg}/></MobileImage>
+          <Feature_04><App_Feature number={EnglishHTML[3].number} title={EnglishHTML[3].title} content={EnglishHTML[3].content} /></Feature_04>
+          <Feature_05><App_Feature number={EnglishHTML[4].number} title={EnglishHTML[4].title} content={EnglishHTML[4].content} /></Feature_05>
+          <Feature_06><App_Feature number={EnglishHTML[5].number} title={EnglishHTML[5].title} content={EnglishHTML[5].content} /></Feature_06>
+        </Grid>
       )
     }
   }
@@ -76,63 +67,22 @@ export default class AppPreview extends Component {
 class App_Feature extends Component {
   render() {
     return (
-      <AppFeature>
-        <AppFeatureNumber   >{this.props.number}</AppFeatureNumber>
-        <AppFeatureTitle    >{this.props.title}</AppFeatureTitle>
-        <AppFeatureSubTitle >{this.props.content}</AppFeatureSubTitle>
-      </AppFeature>
+      <div>
+        <AppFeatureNumber   >{ this.props.number  }</AppFeatureNumber>
+        <AppFeatureTitle    >{ this.props.title   }</AppFeatureTitle>
+        <AppFeatureSubTitle >{ this.props.content }</AppFeatureSubTitle>
+      </div>
     )
   }
 }
 
 /* CSS Styled Components Only Below this comment*/
-
-const AppPreviewContainer = styled.section`
-  overflow:       hidden;
-  margin-top:     100px;
-  padding-right:  10%;
-  padding-left:   10%;
-  
-`;
-
-
-const AppPreviewLeft = styled.div`
-  text-align:left;
-  float: left;
-  display: flex;
-  flex-direction: column;
-  text-justify: auto
-`;
-
-const AppPreviewRight = styled.div`
-  text-align:left;
-  float: right;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap-reverse;
-  text-justify: auto
-`;
-
 const AppPreviewImage = styled.img`
-  padding-left: 10%;
-  padding-right: 10%;
-  margin-top: -300px;
-
-  position: absolute;
-
-  left: 0px;
-  right: 0px;
-  z-index: -1;
-`;
-
-const AppFeature = styled.div`
-  position: relative;
-  display: inline-block;    
-  width: 100%;
-  left: 0; 
-  box-sizing: border-box; 
-  width: 280px;
-  height:  180px;
+width: auto;
+height: auto;
+      position: fixed;
+    top: 12%;
+    left: 2%;
 `;
 const AppFeatureNumber = styled.h3`
   font-size: 40px;
@@ -142,4 +92,58 @@ margin-top: -30px;
 `;
 const AppFeatureSubTitle = styled.p`
   margin-top: -26px;
+`;
+
+const Grid = styled.section.attrs({
+  id: "app-preview"
+})`
+
+  overflow:       hidden;
+  padding-right:  10%;
+  padding-left:   10%;
+  padding-top:    100px;
+  margin-top:     -50px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:  "Feature_01 MobileImage Feature_04" 
+                        "Feature_02 MobileImage Feature_05" 
+                        "Feature_03 MobileImage Feature_06";
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:  "MobileImage Feature_01" 
+                          "MobileImage Feature_02" 
+                          "MobileImage Feature_03" 
+                          "MobileImage Feature_04" 
+                          "MobileImage Feature_05" 
+                          "MobileImage Feature_06";
+  }
+`;
+const MobileImage = styled.div`
+  grid-area: MobileImage;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+`;
+const Feature_01  = styled.div`
+  grid-area: Feature_01;
+  
+`;
+const Feature_02 = styled.div`
+  grid-area: Feature_02;
+`;
+const Feature_03 = styled.div`
+  grid-area: Feature_03;
+`;
+const Feature_04 = styled.div`
+  grid-area: Feature_04;
+`;
+const Feature_05 = styled.div`
+  grid-area: Feature_05;
+`;
+const Feature_06 = styled.div`
+  grid-area: Feature_06;
 `;

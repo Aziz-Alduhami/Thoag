@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 import {H1, P} from '../styles/Mystyles'
 
-import f_image0 from '../images/01.jpg'
-import f_image1 from '../images/02.jpg'
-import f_image2 from '../images/03.jpg'
-import f_image3 from '../images/04.jpg'
+import f_image0 from '../images/about/01.jpg'
+import f_image1 from '../images/about/02.jpg'
+import f_image2 from '../images/about/03.jpg'
+import f_image3 from '../images/about/04.jpg'
 
 
 
@@ -122,13 +122,13 @@ export default class About extends Component {
 class Service extends Component {
   render(){
     return (
-      <ServicesContainerContainer>
-        <AboutServiceImage        src={this.props.img} />
-        <AboutServiceTextContainer isRTL={this.props.isRTL}>
-          <AboutServiceText       >{this.props.title}</AboutServiceText>
-          <ServicesContainerubText    >{this.props.content}</ServicesContainerubText>
-        </AboutServiceTextContainer>
-      </ServicesContainerContainer>
+      <div>
+        <div style={{overflow: "hidden"}}><ServiceImg src={this.props.img} /></div>
+        <GrpSerText isRTL={this.props.isRTL}>
+          <ServiceText>{this.props.title}</ServiceText>
+          <ServiceSubText    >{this.props.content}</ServiceSubText>
+        </GrpSerText>
+      </div>
     )
   }
 }
@@ -150,53 +150,49 @@ const TextContainer = styled.div`
 `;
 
 const Text = styled(H1)`
-  text-transform: initial;
+  text-transform:         initial;
 `;
 const SubText = styled(P)`
 `;
 
 const ServicesContainer = styled.div`
   display:                grid;
-  grid-template-columns:  25% 25% 25% 25% 10%;
+  grid-template-columns:  25% 25% 25% 25%;
   grid-template-rows:     auto auto;
-
+  overflow:               hidden;
   @media screen and (max-width: 500px) {
     display:                  inline-block;
   }
 `;
-const ServicesContainerContainer =styled.div`
-  padding: 5%;
-  overflow: hidden;
-`;
-const AboutServiceImage = styled.img`
-  width: auto;
-  height: auto;
-  transition-duration: 0.2s;
-  overflow: hidden;
+const ServiceImg = styled.img`
+  margin-top:            -24px;
+  margin-bottom:         -24px;
+  padding:               5%;
+  width:                 auto;
+  height:                auto;
+  overflow:              hidden;
+  transition-duration:   0.4s;
   &:hover{
-        -webkit-transform: scale(1.3);
-        -ms-transform: scale(1.3);
-        transform: scale(1.3);
-        }
+    -webkit-transform:        scale(1.2);
+    -ms-transform:            scale(1.2);
+    transform:                scale(1.2);
+  }
 `;
 
-const AboutServiceTextContainer = styled.div`
-  text-align: ${props => props.isRTL ? 'right' : 'left'};
-  padding-left: 60px;
-  
+/** Service text container */
+const GrpSerText = styled.div`
+  text-align:           ${props => props.isRTL ? 'right' : 'left'};
+  padding:              ${props => props.isRTL ? '0 60px 0 0':'0 0 0 60px'};
+  overflow:             hidden;
 `;
 
-const AboutServiceText = styled.h5`
-  font-size: 20px;
-  font-family: 'Noto Sans', sans-serif;    
-  color: rgb(54, 54, 54);
-  text-transform: capitalize;
-  font-weight: bold;
+
+const ServiceText = styled(H1)`
+  font-size:            x-large;
+  text-transform:       initial;
+  font-weight:          bold;
 `;
 
-const ServicesContainerubText = styled.p`
-  font-size: 17px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
-  color: rgb(98, 98, 98);
-
+const ServiceSubText = styled(P)`
+  font-size:            large;
 `;
