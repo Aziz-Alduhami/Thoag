@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
+
+import {H1, P} from '../styles/Mystyles'
+
 import f_image0 from '../images/01.jpg'
 import f_image1 from '../images/02.jpg'
 import f_image2 from '../images/03.jpg'
@@ -77,18 +80,17 @@ export default class About extends Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ isAboutStateRTL: nextProps.isRTL });
-    console.log("about: isAboutStateRTL: " + this.state.isAboutStateRTL); 
   }
   render() {
     return (           
-      <AboutContainer id="about">
+      <Container id="about">
 
-        <AboutTextContainer isRTL={this.state.isAboutStateRTL}>
-          <AboutText    >{this.state.isAboutStateRTL? ArabicHTML.title : EnglishHTML.title}</AboutText>
-          <AboutSubText >{this.state.isAboutStateRTL? ArabicHTML.content : EnglishHTML.content}</AboutSubText>
-        </AboutTextContainer>
+        <TextContainer isRTL={this.state.isAboutStateRTL}>
+          <Text    >{this.state.isAboutStateRTL? ArabicHTML.title : EnglishHTML.title}</Text>
+          <SubText >{this.state.isAboutStateRTL? ArabicHTML.content : EnglishHTML.content}</SubText>
+        </TextContainer>
 
-        <AboutServices>
+        <ServicesContainer>
           <Service title    ={this.state.isAboutStateRTL? ArabicHTML_Features[0].title : EnglishHTML_Features[0].title} 
                     content ={this.state.isAboutStateRTL? ArabicHTML_Features[0].content : EnglishHTML_Features[0].content}  
                     img     ={this.state.isAboutStateRTL? ArabicHTML_Features[0].img : EnglishHTML_Features[0].img}  
@@ -108,9 +110,9 @@ export default class About extends Component {
                     content ={this.state.isAboutStateRTL? ArabicHTML_Features[3].content : EnglishHTML_Features[3].content}  
                     img     ={this.state.isAboutStateRTL? ArabicHTML_Features[3].img : EnglishHTML_Features[3].img}  
                     isRTL={this.state.isAboutStateRTL}/>         
-        </AboutServices>
+        </ServicesContainer>
 
-      </AboutContainer>
+      </Container>
     )
   }
 }
@@ -120,60 +122,50 @@ export default class About extends Component {
 class Service extends Component {
   render(){
     return (
-      <AboutServicesContainer>
+      <ServicesContainerContainer>
         <AboutServiceImage        src={this.props.img} />
         <AboutServiceTextContainer isRTL={this.props.isRTL}>
           <AboutServiceText       >{this.props.title}</AboutServiceText>
-          <AboutServiceSubText    >{this.props.content}</AboutServiceSubText>
+          <ServicesContainerubText    >{this.props.content}</ServicesContainerubText>
         </AboutServiceTextContainer>
-      </AboutServicesContainer>
+      </ServicesContainerContainer>
     )
   }
 }
 
 
 /* CSS Styled Components Only Below this comment*/
-const AboutContainer = styled.section`
-  margin-top:     100px;
-  padding-right:  10%;
-  padding-left:   10%;
-  ${'' /* padding-top:    -100px; */}
-  overflow:       hidden;
+const Container = styled.section`
+  margin-top:             -50px;
+  padding:                100px 10% 0 10%; 
+  overflow:               hidden;
 `;
 
-const AboutTextContainer = styled.div`
-  text-align:     ${props => props.isRTL ? 'right' : 'left'};
-  position:       relative;
-  display:        inline-block;    
-  width:          100%;
-  left:           0;
+const TextContainer = styled.div`
+  text-align:             ${props => props.isRTL ? 'right' : 'left'};
+  position:               relative;
+  display:                inline-block;    
+  width:                  100%;
+  left:                   0;
 `;
 
-const AboutText = styled.h2`
-  color:          rgb(54, 54, 54);
-  font-size:      30px;
-  font-weight:    700;
-  box-sizing:     border-box;
+const Text = styled(H1)`
+  text-transform: initial;
 `;
-const AboutSubText = styled.p`
-  color:          rgb(98, 98, 98);
-  font-size:      20px;
-  font-weight:    400;
-  box-sizing:     border-box;
-  font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
+const SubText = styled(P)`
 `;
 
-            /* Services CSS */
-const AboutServices = styled.div`
-  display: grid;
-  grid-template-columns:25% 25% 25% 25% 10%;
-  grid-template-rows:auto auto;
-  margin-right: -15px;
-  margin-left: -15px;
+const ServicesContainer = styled.div`
+  display:                grid;
+  grid-template-columns:  25% 25% 25% 25% 10%;
+  grid-template-rows:     auto auto;
+
+  @media screen and (max-width: 500px) {
+    display:                  inline-block;
+  }
 `;
-const AboutServicesContainer =styled.div`
-  padding-right: 15px;
-  padding-left: 15px;
+const ServicesContainerContainer =styled.div`
+  padding: 5%;
   overflow: hidden;
 `;
 const AboutServiceImage = styled.img`
@@ -202,7 +194,7 @@ const AboutServiceText = styled.h5`
   font-weight: bold;
 `;
 
-const AboutServiceSubText = styled.p`
+const ServicesContainerubText = styled.p`
   font-size: 17px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
   color: rgb(98, 98, 98);

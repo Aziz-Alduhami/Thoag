@@ -119,6 +119,8 @@ const MainContainer = styled.section`
     direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
     text-align:       center;
     z-index:          -1;
+    padding-top:    100px;
+    margin-top:     -100px;
 
 `;
 

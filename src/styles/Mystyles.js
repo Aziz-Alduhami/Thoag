@@ -5,7 +5,7 @@ export const H1 = styled.h1`
     color:            rgb(54, 54, 54);
     display:          inline-block;
     font-family:      "Noto Sans", sans-serif;
-    font-size:        x-large;
+    font-size:        xx-large;
     font-weight:      700;
     left:             0;       
     text-transform:   uppercase;
@@ -14,8 +14,9 @@ export const H1 = styled.h1`
 
 export const P = styled.p`
     color:            rgb(98, 98, 98);
+    font-weight:      400;
     font-family:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
-    font-size:        large;
+    font-size:        x-large;
 `;
 
 

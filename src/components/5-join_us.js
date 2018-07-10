@@ -84,10 +84,10 @@ export default class JoinUs extends Component {
 
 /* CSS Styled Components Only Below this comment*/
 const JoinUsContainer = styled.section`
-  margin-top: 100px;
-  padding-right: 10%;
-  padding-left: 10%;
-  padding-bottom: 10px;
+  padding-right:  10%;
+  padding-left:   10%;
+  padding-top:    100px;
+  margin-top:     -50px;
   width: 100%;
   background-color: #f3f3f3;
 `;
