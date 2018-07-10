@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import Modal from './modal'
 import styled from "styled-components";
+
+import Modal from './modal'
+import {Button, H1} from '../styles/Mystyles'
 import BgImg from '../images/bgImage.jpg'
 import AppleIcon from '../images/icons8-apple-filled-50.png'
 import AndroidIcon from '../images/icons8-android-os-52.png'
@@ -53,7 +55,7 @@ export default class Main extends Component {
       return(
         <MainContainer id="main" isRTL={this.state.isMainStateRTL}>
             <TextContainer>
-              <MainText>{ArabicHTML.main_text}</MainText>
+              <H1>{ArabicHTML.main_text}</H1>
               <MainSubText>{ArabicHTML.sub_text}</MainSubText>
             </TextContainer>
           <BtnQuotation onClick={this.openModal}>
@@ -79,7 +81,7 @@ export default class Main extends Component {
       return(
         <MainContainer id="main" isRTL={this.state.isMainStateRTL}>
             <TextContainer>
-              <MainText>{EnglishHTML.main_text}</MainText>
+              <H1>{EnglishHTML.main_text}</H1>
               <MainSubText>{EnglishHTML.sub_text}</MainSubText>
             </TextContainer>
           <BtnQuotation onClick={this.openModal}>{EnglishHTML.button_getPrice}</BtnQuotation>
@@ -127,16 +129,16 @@ const TextContainer = styled.div`
     }
 `;
 
-const MainText = styled.h1`
-    color:            white;
-    display:          inline-block;
-    font-family:      "Noto Sans", sans-serif;
-    font-size:        x-large;
-    font-weight:      600;
-    left:             0;       
-    text-transform:   uppercase;      
+// const MainText = styled.h1`
+//     color:            white;
+//     display:          inline-block;
+//     font-family:      "Noto Sans", sans-serif;
+//     font-size:        x-large;
+//     font-weight:      600;
+//     left:             0;       
+//     text-transform:   uppercase;      
 
-`;
+// `;
 
 const MainSubText = styled.p`
     color:            white;
@@ -179,27 +181,27 @@ const ButtonsGroup = styled.div`
     }
 `;
 
-const Button = styled.img`
-    /* Size */
-    max-width:15%;
-    max-height:15%;
-    width: auto;
-    height: auto;
-    /* Effects */
-    opacity: 0.6;
-    transition: opacity 0.5s ease;
-    &:hover{
-       opacity: 1;
-    }
-    @media screen and (max-width: 500px) {
-        top:              1.5vh;
-        position:         relative;
-        max-width:        40%;
-        max-height:       40%;
-        width:            auto;
-        height:           auto;
-    }
-`;
+// const Button = styled.img`
+//     /* Size */
+//     max-width:15%;
+//     max-height:15%;
+//     width: auto;
+//     height: auto;
+//     /* Effects */
+//     opacity: 0.6;
+//     transition: opacity 0.5s ease;
+//     &:hover{
+//        opacity: 1;
+//     }
+//     @media screen and (max-width: 500px) {
+//         top:              1.5vh;
+//         position:         relative;
+//         max-width:        40%;
+//         max-height:       40%;
+//         width:            auto;
+//         height:           auto;
+//     }
+// `;
 // const BtniOS = styled.button`
 //     direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
 //     opacity: 0.6;

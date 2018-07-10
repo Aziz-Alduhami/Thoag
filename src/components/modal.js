@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
-// import { Check } from '../../node_modules/styled-icons/feather';
 
 
 const ArabicHTML_Modal = { tile: "دعونا نعمل معا",
@@ -239,5 +238,4 @@ const Submit = styled.input`
 	border: 1px solid #e6e6e6;
 	border-radius: 3px;
 	width: 81.5%;
-
 `;
