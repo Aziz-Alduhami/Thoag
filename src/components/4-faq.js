@@ -164,5 +164,5 @@ const Answer = styled(P).attrs({
   font-size:            large;
   @media screen and (max-width: 500px) {
     text-align:             center;
-  }  
+  }
 `;
