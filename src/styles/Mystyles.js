@@ -50,11 +50,11 @@ export const ImgButton = styled.img`
     /* Size */
     max-width:				15%;
     max-height:				15%;
-    width: 						auto;
-    height: 					auto;
+    width: 				    auto;
+    height: 				auto;
     /* Effects */
     opacity: 					0.6;
-    transition: 			opacity 0.5s ease;
+    transition: 			    opacity 0.5s ease;
     &:hover{
         opacity: 					1;
     }

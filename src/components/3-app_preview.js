@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
-import {H1, P} from '../styles/Mystyles'
+import {P} from '../styles/Mystyles'
 
-import iphoneImg from '../images/app preview/iphoneimg.png'
-import Image_01 from '../images/app preview/scr_1.png'
-import Image_02 from '../images/app preview/scr_2.png'
-import Image_03 from '../images/app preview/scr_3.png'
-import Image_04 from '../images/app preview/scr_4.png'
-import Image_05 from '../images/app preview/scr_5.png'
-import Image_06 from '../images/app preview/scr_6.png'
+import Image_01 from '../images/app preview/1.png'
+import Image_02 from '../images/app preview/2.png'
+import Image_03 from '../images/app preview/3.png'
+import Image_04 from '../images/app preview/4.png'
+import Image_05 from '../images/app preview/5.png'
+import Image_06 from '../images/app preview/6.png'
 
 
 
@@ -37,47 +36,110 @@ export default class AppPreview extends Component {
     super(props);
     this.state = {
       isAppPreviewtStateRTL: this.props.isRTL,
-      active: 0
+      active: Image_01,
     }
-    this.handleHover = this.handleHover.bind(this);
+    this.changeImage = this.changeImage.bind(this);
   }
-  componentDidMount(){
-    window.addEventListener("mouseover", this.handleHover);
-  }
+  // componentDidMount(){
+  //   window.addEventListener("mouseover", this.handleHover);
+  // }
   componentWillReceiveProps(nextProps) {
     this.setState({ isAppPreviewtStateRTL: nextProps.isRTL });
   }
 
-  handleHover(event){
-    // console.log(event.target);
-    // event.target.style.color = "red";
-    this.setState({active: false});
+  changeImage(event){
+    console.log(event.target.id);
+    if(event.target.id === "F1"){
+      this.setState({active: Image_01});
+    }
+    if(event.target.id === "F2"){
+      this.setState({active: Image_02});
+    }
+    if(event.target.id === "F3"){
+      this.setState({active: Image_03});
+    }
+    if(event.target.id === "F4"){
+      this.setState({active: Image_04});
+    }
+    if(event.target.id === "F5"){
+      this.setState({active: Image_05});
+    }
+    if(event.target.id === "F6"){
+      this.setState({active: Image_06});
+    }
   }
   render() {
     if(this.state.isAppPreviewtStateRTL){
       return(
         <Grid>
-          <Feature_01  active={this.state.active}><App_Feature onMouseover={this.handleHover} number={ArabicHTML[0].number} title={ArabicHTML[0].title} content={ArabicHTML[0].content} /></Feature_01>
-          <Feature_02><App_Feature number={ArabicHTML[1].number} title={ArabicHTML[1].title} content={ArabicHTML[1].content} /></Feature_02>
-          <Feature_03><App_Feature number={ArabicHTML[2].number} title={ArabicHTML[2].title} content={ArabicHTML[2].content} /></Feature_03>
-          <MobileImage><AppPreviewImage src={iphoneImg}/></MobileImage>
-          <Feature_04><App_Feature number={ArabicHTML[3].number} title={ArabicHTML[3].title} content={ArabicHTML[3].content} /></Feature_04>
-          <Feature_05><App_Feature number={ArabicHTML[4].number} title={ArabicHTML[4].title} content={ArabicHTML[4].content} /></Feature_05>
-          <Feature_06><App_Feature number={ArabicHTML[5].number} title={ArabicHTML[5].title} content={ArabicHTML[5].content} /></Feature_06>
-        </Grid>
+        <Feature_01 id="F1"
+                    onMouseOver={this.changeImage} 
+                    active={this.state.active}>
+          <App_Feature id="F1" newID="F1" number={ArabicHTML[0].number} title={ArabicHTML[0].title} content={ArabicHTML[0].content} />
+        </Feature_01>
+        <Feature_02 id="F2"
+                    onMouseOver={this.changeImage} 
+                    active={this.state.active}>
+          <App_Feature id="F2" newID="F2" number={ArabicHTML[1].number} title={ArabicHTML[1].title} content={ArabicHTML[1].content} />
+        </Feature_02>
+        <Feature_03 id="F3"
+                    onMouseOver={this.changeImage} 
+                    active={this.state.active}>
+          <App_Feature id="F3" newID="F3" number={ArabicHTML[2].number} title={ArabicHTML[2].title} content={ArabicHTML[2].content} />
+        </Feature_03>
+        <MobileImage><AppPreviewImage active={this.state.active}/></MobileImage>
+        <Feature_04 id="F4"
+                    onMouseOver={this.changeImage} 
+                    active={this.state.active}>
+          <App_Feature id="F4" newID="F4" number={ArabicHTML[3].number} title={ArabicHTML[3].title} content={ArabicHTML[3].content} />
+        </Feature_04>
+        <Feature_05 id="F5"
+                    onMouseOver={this.changeImage} 
+                    active={this.state.active}>
+          <App_Feature id="F5" newID="F5" number={ArabicHTML[4].number} title={ArabicHTML[4].title} content={ArabicHTML[4].content} />
+        </Feature_05>
+        <Feature_06 id="F6"
+                    onMouseOver={this.changeImage} 
+                    active={this.state.active}>
+          <App_Feature id="F6" newID="F6" number={ArabicHTML[5].number} title={ArabicHTML[5].title} content={ArabicHTML[5].content} />
+        </Feature_06>
+      </Grid>
       )
     }
     else{
       return(
         <Grid>
-          <Feature_01 onmouseover={this.handleHover} active={this.state.active}><App_Feature number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} /></Feature_01>
-          <Feature_02><App_Feature number={EnglishHTML[1].number} title={EnglishHTML[1].title} content={EnglishHTML[1].content} /></Feature_02>
-          <Feature_03><App_Feature number={EnglishHTML[2].number} title={EnglishHTML[2].title} content={EnglishHTML[2].content} /></Feature_03>
-          <MobileImage><AppPreviewImage src={iphoneImg}/></MobileImage>
-          <AppImage></AppImage>
-          <Feature_04><App_Feature number={EnglishHTML[3].number} title={EnglishHTML[3].title} content={EnglishHTML[3].content} /></Feature_04>
-          <Feature_05><App_Feature number={EnglishHTML[4].number} title={EnglishHTML[4].title} content={EnglishHTML[4].content} /></Feature_05>
-          <Feature_06><App_Feature number={EnglishHTML[5].number} title={EnglishHTML[5].title} content={EnglishHTML[5].content} /></Feature_06>
+          <Feature_01 id="F1"
+                      onMouseOver={this.changeImage} 
+                      active={this.state.active}>
+            <App_Feature id="F1" newID="F1" number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} />
+          </Feature_01>
+          <Feature_02 id="F2"
+                      onMouseOver={this.changeImage} 
+                      active={this.state.active}>
+            <App_Feature id="F2" newID="F2" number={EnglishHTML[1].number} title={EnglishHTML[1].title} content={EnglishHTML[1].content} />
+          </Feature_02>
+          <Feature_03 id="F3"
+                      onMouseOver={this.changeImage} 
+                      active={this.state.active}>
+            <App_Feature id="F3" newID="F3" number={EnglishHTML[2].number} title={EnglishHTML[2].title} content={EnglishHTML[2].content} />
+          </Feature_03>
+          <MobileImage><AppPreviewImage active={this.state.active}/></MobileImage>
+          <Feature_04 id="F4"
+                      onMouseOver={this.changeImage} 
+                      active={this.state.active}>
+            <App_Feature id="F4" newID="F4" number={EnglishHTML[3].number} title={EnglishHTML[3].title} content={EnglishHTML[3].content} />
+          </Feature_04>
+          <Feature_05 id="F5"
+                      onMouseOver={this.changeImage} 
+                      active={this.state.active}>
+            <App_Feature id="F5" newID="F5" number={EnglishHTML[4].number} title={EnglishHTML[4].title} content={EnglishHTML[4].content} />
+          </Feature_05>
+          <Feature_06 id="F6"
+                      onMouseOver={this.changeImage} 
+                      active={this.state.active}>
+            <App_Feature id="F6" newID="F6" number={EnglishHTML[5].number} title={EnglishHTML[5].title} content={EnglishHTML[5].content} />
+          </Feature_06>
         </Grid>
       )
     }
@@ -88,33 +150,16 @@ class App_Feature extends Component {
   render() {
     return (
       <div>
-        <AppFeatureNumber   >{ this.props.number  }</AppFeatureNumber>
-        <AppFeatureTitle    >{ this.props.title   }</AppFeatureTitle>
-        <AppFeatureSubTitle >{ this.props.content }</AppFeatureSubTitle>
+        <AppFeatureNumber   id={this.props.newID}>{ this.props.number  }</AppFeatureNumber>
+        <AppFeatureTitle    id={this.props.newID}>{ this.props.title   }</AppFeatureTitle>
+        <AppFeatureSubTitle id={this.props.newID}>{ this.props.content }</AppFeatureSubTitle>
       </div>
     )
   }
 }
 
 /* CSS Styled Components Only Below this comment*/
-const AppPreviewImage = styled.img`
-  width:                auto;
-  height:               auto;
-`;
-const AppFeatureNumber = styled(P)`
-  font-size:            x-large;
-  text-transform:       initial;
-  font-weight:          bold;
-`;
-const AppFeatureTitle = styled(P)`
-  margin-top:           -30px;
-  font-size:            x-large;
-  text-transform:       initial;
-  font-weight:          bold;
-`;
-const AppFeatureSubTitle = styled.p`
-  margin-top:           -26px;
-`;
+
 
 const Grid = styled.section.attrs({
   id: "app-preview"
@@ -125,6 +170,7 @@ const Grid = styled.section.attrs({
   padding-left:         10%;
   padding-top:          100px;
   margin-top:           -50px;
+  margin-bottom:        100px;
 
   display: grid;
   grid-template-columns:  1fr 1fr 1fr;
@@ -152,21 +198,8 @@ const MobileImage = styled.div`
     display:         none;
   }    
 `;
-const AppImage = styled.img.attrs({
-  src: Image_01,
-})`
-  grid-area:          MobileImage;
-  margin-left:        auto;
-  margin-right:       auto;
-  width:              38.8%;
-  padding-top:        15%;
-  @media screen and (max-width: 500px) {
-    display:         none;
-  } 
-`;
-const Feature_01  = styled.div.attrs({
-  className: "1"
-})`
+
+const Feature_01  = styled.div`
   grid-area:          Feature_01;
   opacity:            0.6;
   transition:         opacity 0.5s ease;
@@ -188,4 +221,31 @@ const Feature_05 = styled(Feature_01)`
 `;
 const Feature_06 = styled(Feature_01)`
   grid-area:          Feature_06;
+`;
+
+const AppPreviewImage = styled.img.attrs({
+  src: props => props.active,
+})`
+  width:                auto;
+  height:               auto;
+`;
+const AppFeatureNumber = styled(P).attrs({
+  id: props => props.newID,
+})`
+  font-size:            x-large;
+  text-transform:       initial;
+  font-weight:          bold;
+`;
+const AppFeatureTitle = styled(P).attrs({
+  id: props => props.newID,
+})`
+  margin-top:           -30px;
+  font-size:            x-large;
+  text-transform:       initial;
+  font-weight:          bold;
+`;
+const AppFeatureSubTitle = styled.p.attrs({
+  id: props => props.newID,
+})`
+  margin-top:           -26px;
 `;
