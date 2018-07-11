@@ -64,8 +64,6 @@ export const ImgButton = styled.img`
         position:         relative;
         max-width:        40%;
         max-height:       40%;
-        width:            auto;
-        height:           auto;
     }
 `;
 

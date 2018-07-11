@@ -171,7 +171,7 @@ const ServiceImg = styled.img`
   width:                 auto;
   height:                auto;
   overflow:              hidden;
-  transition-duration:   0.4s;
+  transition-duration:   0.5s;
   &:hover{
     -webkit-transform:        scale(1.2);
     -ms-transform:            scale(1.2);

@@ -3,6 +3,12 @@ import styled from "styled-components";
 import {H1, P} from '../styles/Mystyles'
 
 import iphoneImg from '../images/app preview/iphoneimg.png'
+import Image_01 from '../images/app preview/scr_1.png'
+import Image_02 from '../images/app preview/scr_2.png'
+import Image_03 from '../images/app preview/scr_3.png'
+import Image_04 from '../images/app preview/scr_4.png'
+import Image_05 from '../images/app preview/scr_5.png'
+import Image_06 from '../images/app preview/scr_6.png'
 
 
 
@@ -31,16 +37,27 @@ export default class AppPreview extends Component {
     super(props);
     this.state = {
       isAppPreviewtStateRTL: this.props.isRTL,
+      active: 0
     }
+    this.handleHover = this.handleHover.bind(this);
+  }
+  componentDidMount(){
+    window.addEventListener("mouseover", this.handleHover);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ isAppPreviewtStateRTL: nextProps.isRTL });
+  }
+
+  handleHover(event){
+    // console.log(event.target);
+    // event.target.style.color = "red";
+    this.setState({active: false});
   }
   render() {
     if(this.state.isAppPreviewtStateRTL){
       return(
         <Grid>
-          <Feature_01><App_Feature number={ArabicHTML[0].number} title={ArabicHTML[0].title} content={ArabicHTML[0].content} /></Feature_01>
+          <Feature_01  active={this.state.active}><App_Feature onMouseover={this.handleHover} number={ArabicHTML[0].number} title={ArabicHTML[0].title} content={ArabicHTML[0].content} /></Feature_01>
           <Feature_02><App_Feature number={ArabicHTML[1].number} title={ArabicHTML[1].title} content={ArabicHTML[1].content} /></Feature_02>
           <Feature_03><App_Feature number={ArabicHTML[2].number} title={ArabicHTML[2].title} content={ArabicHTML[2].content} /></Feature_03>
           <MobileImage><AppPreviewImage src={iphoneImg}/></MobileImage>
@@ -53,10 +70,11 @@ export default class AppPreview extends Component {
     else{
       return(
         <Grid>
-          <Feature_01><App_Feature number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} /></Feature_01>
+          <Feature_01 onmouseover={this.handleHover} active={this.state.active}><App_Feature number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} /></Feature_01>
           <Feature_02><App_Feature number={EnglishHTML[1].number} title={EnglishHTML[1].title} content={EnglishHTML[1].content} /></Feature_02>
           <Feature_03><App_Feature number={EnglishHTML[2].number} title={EnglishHTML[2].title} content={EnglishHTML[2].content} /></Feature_03>
           <MobileImage><AppPreviewImage src={iphoneImg}/></MobileImage>
+          <AppImage></AppImage>
           <Feature_04><App_Feature number={EnglishHTML[3].number} title={EnglishHTML[3].title} content={EnglishHTML[3].content} /></Feature_04>
           <Feature_05><App_Feature number={EnglishHTML[4].number} title={EnglishHTML[4].title} content={EnglishHTML[4].content} /></Feature_05>
           <Feature_06><App_Feature number={EnglishHTML[5].number} title={EnglishHTML[5].title} content={EnglishHTML[5].content} /></Feature_06>
@@ -131,25 +149,43 @@ const MobileImage = styled.div`
   margin-left:        auto;
   margin-right:       auto;
   @media screen and (max-width: 500px) {
-        display:         none;
+    display:         none;
+  }    
+`;
+const AppImage = styled.img.attrs({
+  src: Image_01,
+})`
+  grid-area:          MobileImage;
+  margin-left:        auto;
+  margin-right:       auto;
+  width:              38.8%;
+  padding-top:        15%;
+  @media screen and (max-width: 500px) {
+    display:         none;
+  } 
+`;
+const Feature_01  = styled.div.attrs({
+  className: "1"
+})`
+  grid-area:          Feature_01;
+  opacity:            0.6;
+  transition:         opacity 0.5s ease;
+  :hover{
+    opacity:            1;
   }
 `;
-const Feature_01  = styled.div`
-  grid-area:          Feature_01;
-  
-`;
-const Feature_02 = styled.div`
+const Feature_02 = styled(Feature_01)`
   grid-area:          Feature_02;
 `;
-const Feature_03 = styled.div`
+const Feature_03 = styled(Feature_01)`
   grid-area:          Feature_03;
 `;
-const Feature_04 = styled.div`
+const Feature_04 = styled(Feature_01)`
   grid-area:          Feature_04;
 `;
-const Feature_05 = styled.div`
+const Feature_05 = styled(Feature_01)`
   grid-area:          Feature_05;
 `;
-const Feature_06 = styled.div`
+const Feature_06 = styled(Feature_01)`
   grid-area:          Feature_06;
 `;
