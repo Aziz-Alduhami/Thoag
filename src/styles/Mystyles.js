@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const H1 = styled.h1`
     color:            rgb(54, 54, 54);
-    display:          inline-block;
+    ${'' /* display:          inline-block; */}
     font-family:      "Noto Sans", sans-serif;
     font-size:        xx-large;
     font-weight:      700;
@@ -68,35 +68,60 @@ export const ImgButton = styled.img`
 `;
 
 
-export const Input = styled.input`
+export const Input = styled.input.attrs({
+    dir: props => props.isRTL ? 'rtl' : 'ltr'
+})`
 		margin-bottom: 			15px;
-		padding: 						5px 15px 15px 5px; /* top > right > bottom > left */
-		margin: 						0.5%;
-		background-color: 	rgb(243, 243, 243);
-		cursor: 						auto;
-		border: 						1px solid #e6e6e6;
+		padding: 			    5px 15px 15px 5px; /* top > right > bottom > left */
+		margin: 				0.5%;
+		background-color: 	    rgb(243, 243, 243);
+		cursor: 				auto;
+		border: 				1px solid #e6e6e6;
 		border-radius: 			3px;
-		width: 							40%;
+		width: 					40%;
 		@media screen and (max-width: 500px) {
 				width: 						90%;
 		}
 `;
 
 export const Select = styled.select`
-		display: 						inline-block;
+		display: 				inline-block;
 		margin-bottom: 			5px;
-		padding:						5px 15px 15px 5px;
-		margin: 						0.5%;
-		background-color: 	#f3f3f3;
-		cursor: 						auto;
-		border: 						1px solid #e6e6e6;
+		padding:				5px 15px 15px 5px;
+		margin: 				0.5%;
+		background-color: 	    #f3f3f3;
+		cursor: 				auto;
+		border: 				1px solid #e6e6e6;
 		border-radius: 			3px;
-		width: 							40%;
+		width: 					40%;
 		@media screen and (max-width: 500px) {
 				width: 						90%;
 		}
 `;
 
+export const Submit = styled.input`
+		/*Text */
+		color:            white;
+        font-size:        large;
+        font-weight:      600;
+        /*Bg and Border */
+        background-color: rgb(193, 35, 54);
+        border:           none;
+        border-radius:    3px;
+        /* Size */
+        margin-bottom:    5%;
+        width: 						81%;
+        height:           50px;
+        /* Effects */
+        transition:       background-color 0.5s ease;
+
+        &:hover{
+            background-color: #db0620;
+        }
+        @media screen and (max-width: 500px) {
+            width:            90%;
+        }
+`;
 // const Button = styled.img`
 //     /* Size */
 //     max-width:15%;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
 
-import {H1, P, Input, Select} from '../styles/Mystyles'
+import {H1, P, Input, Select, Submit} from '../styles/Mystyles'
 
 
 const ArabicHTML_Modal = { tile: "دعونا نعمل معا",
@@ -196,27 +196,4 @@ const TextArea = styled.textarea`
 		}
 `;
 
-const Submit = styled.input`
-		/*Text */
-		color:            white;
-    font-size:        large;
-    font-weight:      600;
-    /*Bg and Border */
-    background-color: rgb(193, 35, 54);
-    border:           none;
-    border-radius:    3px;
-    /* Size */
-    margin-bottom:    5%;
-    width: 						81%;
-    height:           50px;
-    /* Effects */
-    transition:       background-color 0.5s ease;
 
-    &:hover{
-      background-color: #db0620;
-    }
-    @media screen and (max-width: 500px) {
-
-        width:            90%;
-    }
-`;

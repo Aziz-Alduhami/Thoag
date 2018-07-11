@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
 
+import {H1, P} from '../styles/Mystyles'
 
 /* Depending on the brower language use one of the two objects */
 const ArabicHTML = 
@@ -49,7 +50,7 @@ export default class FAQ extends Component {
     if(this.state.isFaqStateRTL){
       return (
         <Container id="faq">
-          <FAQText>أسئلة شائعة</FAQText>
+          <Text>أسئلة شائعة</Text>
           {ArabicHTML.map( (index) => <QandA key={index.id} question={index.question} answer={index.answer} isRTL={this.state.isFaqStateRTL}></QandA> )}
        </Container>
       )
@@ -57,7 +58,7 @@ export default class FAQ extends Component {
     else{
       return (
         <Container id="faq">
-          <FAQText>Frequently Asked Questions</FAQText>
+          <Text>Frequently Asked Questions</Text>
           {EnglishHTML.map( (index) => <QandA key={index.id} question={index.question} answer={index.answer} isRTL={this.state.isFaqStateRTL}></QandA> )}
        </Container>
       )
@@ -71,7 +72,7 @@ class QandA extends Component{
   constructor(props){
     super(props);
     this.state = {
-        active: false
+        active: false,
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
@@ -83,23 +84,18 @@ class QandA extends Component{
     this.setState({active: false});
   }
   render(){
-    let newBackgroundColor  = (this.state.active)? "#C12336"  : "white";
-    let newMaxHeight        = (this.state.active)? "1%"    : null;
+    // let newBackgroundColor  = (this.state.active)? "#C12336"  : "white";
+    
     return(
-      <QandAContainer>
-        <div              style={{backgroundColor: newBackgroundColor}}>
-          <QandAQuestion  onClick={this.handleClick} 
-                          onBlur={this.handleBlur}
-                          isRTL={this.props.isRTL}
-                          >
+      <Box>
+        <Q_Container onMouseDown ={this.handleClick} onBlur ={this.handleBlur}>
+          <Question  isRTL={this.props.isRTL}>
             {this.props.question}
-          </QandAQuestion>
-        </div>
-        <QandAAnswer      style={{maxHeight: newMaxHeight}}
-                          isRTL={this.props.isRTL}>
-          {this.props.answer}
-        </QandAAnswer>
-      </QandAContainer>
+          </Question>
+        </Q_Container>
+
+        <Answer active={this.state.active} isRTL={this.props.isRTL}>{this.props.answer}</Answer>
+      </Box>
     )
   }
 }
@@ -107,70 +103,66 @@ class QandA extends Component{
 
 /* CSS Styled Components Only Below this comment*/
 const Container = styled.section`
-  padding-right:  10%;
-  padding-left:   10%;
-  padding-top:    80px;
-  margin-top:     -50px;
+  padding-right:        10%;
+  padding-left:         10%;
+  padding-top:          100px;
+  margin-bottom:        100px;
+  margin-top:           -50px;
+  @media screen and (max-width: 500px) {
+    padding-right:        5%;
+    padding-left:         5%;
+  }  
 `;
 
-const FAQText = styled.h1`
-  text-align:     center;
-  color:          rgb(54,54,54);
-  font-size:      30px;
-  font-weight:    700;
-  font-family:    'Noto Sans', sans-serif;    
-  text-transform: capitalize;
-  
-  transition:      transform 0.5s, color 0.5s;
-  ${'' /* transition-property: transform, color;
-  transition-duration: 0.5s, 0.5s;
-  transition-timing-function: cubic-bezier(0.2,1,0.3,1); */}
+const Text = styled(H1)`
+  text-align:           center;
+  transition:           color 0.5s;
   &:hover{
-    color: #C12336;
+    color:                  #C12336;
   }
 `;
 
-const QandAContainer = styled.div`
-  display:        block;
-  box-sizing:     border-box;
+const Box = styled.div`
+  display:              block;
+  box-sizing:           border-box;
 `;
 
-/* Accordin */
-const QandAQuestion = styled.button`
-  background-color: white;
-  color:          rgb(54,54,54);
-  
-  cursor:         pointer;
-  padding:        18px;
-  width:          100%;
-  border:         none;
-  text-align:     ${props => props.isRTL ? 'right' : 'left'};
-  outline:        none;
-  transition:     0.3s;
-  border:         1px solid #eeeeee;
-  text-transform: uppercase;
-  transition:     background 0.5s;
+const Q_Container = styled.div`
+  background-color:     ${props => props.active? "#C12336"  : "white"}
+`;
+
+const Question = styled.button`
+  text-align:           ${props => props.isRTL ? 'right' : 'left'};
+  color:                rgb(54,54,54);
+  background-color:     white;
+  padding:              18px;
+  width:                100%;
+  outline:              none;
+  transition:           0.3s;
+  border:               1px solid #eeeeee;
+  text-transform:       uppercase;
+  cursor:               pointer;
+  transition:           background 0.5s;
   &:focus{
-    background-color: #C12336;
+    background-color:       #C12336;
     color: white;
   }
   &:hover{
-    background-color: #C12336;
+    background-color:       #e2384d;
     color: white;
   }
 `;
-/* Panel */
-const QandAAnswer = styled.p`
-  ${'' /* padding: 0 18px; */}
-  ${'' /* display: none; */}
-  text-align:     ${props => props.isRTL ? 'right' : 'left'};
-  padding: 2px 5%;
-  text-justify: inter-word;
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 3.5s ease;
 
-  color: rgb(98, 98, 98);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
-  font-size: 16px;
+const Answer = styled(P).attrs({
+  dir: props => props.isRTL ? 'rtl' : 'ltr'
+})`
+  max-height:           ${props => props.active? "100%": "0"};
+  text-align:           ${props => props.isRTL ? 'right' : 'left'};
+  padding:              2px 5%;
+  text-justify:         auto;
+  overflow:             hidden;
+  font-size:            large;
+  @media screen and (max-width: 500px) {
+    text-align:             center;
+  }  
 `;

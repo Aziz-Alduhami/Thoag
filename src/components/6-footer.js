@@ -20,23 +20,29 @@ export default class Footer extends Component {
     return (
       <FooterContainer isRTL={this.state.isFooterStateRTL}>
       <Hr />
+        
+        <hr />
         <p>{this.state.isFooterStateRTL? ArabicHTML : EnglishHTML}</p>
       </FooterContainer>
     )
   }
 }
 
-const FooterContainer = styled.section`
-  color: #626262;
-  background: #1a1a1a;
-  padding-right: 10%;
-  padding-left: 10%;
-  height: 200px;
-
+const FooterContainer = styled.section.attrs({
+  dir: props => props.isRTL ? 'rtl' : 'ltr'
+})`
   text-align: ${props => props.isRTL ? 'right' : 'left'};
+  color:              #626262;
+  background:         #1a1a1a;
+  padding-right:      10%;
+  padding-left:       10%;
+  height:             200px;
+  
+  
 `;
 
 const Hr = styled.hr`
+
   border-color: #C12336;
   background-color: #C12336;
   height:5px;

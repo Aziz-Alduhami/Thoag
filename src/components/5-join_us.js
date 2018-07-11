@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
 
+import {H1, P, Input, Submit} from '../styles/Mystyles'
 
 /* Depending on the brower language use one of the two objects */
 const ArabicHTML = {text:"انضمام مقدمي الخدمات",
@@ -40,42 +41,44 @@ export default class JoinUs extends Component {
   render() {
     if(this.state.isJoinUsStateRTL){
       return (
-        <JoinUsContainer id="join-us">
-          <JoinUsTextContainer>
-            <JoinUsText>{ArabicHTML.text}</JoinUsText>
-            <JoinUsSubText>{ArabicHTML.subtext}</JoinUsSubText>
-          </JoinUsTextContainer>
+        <Container id="join-us">
+          <TextGroup>
+            <Text>{ArabicHTML.text}</Text>
+            <SubText>{ArabicHTML.subtext}</SubText>
+          </TextGroup>
   
-          <JoinUsFormContainer isRTL={this.state.isJoinUsStateRTL}>
-            <form onSubmit={this.handleSubmit}>
+          <FormContainer isRTL={this.state.isJoinUsStateRTL}>
+            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}>
                 <Input placeholder={ArabicHTML.business_name} type="text" isRTL={this.state.isJoinUsStateRTL}/>
                 <Input placeholder={ArabicHTML.email} type="text" isRTL={this.state.isJoinUsStateRTL}/>
                 <Input placeholder={ArabicHTML.mobile} type="text" pattern="" isRTL={this.state.isJoinUsStateRTL}/>
                 <Input placeholder={ArabicHTML.location} type="text" isRTL={this.state.isJoinUsStateRTL}/>
                 <Submit type="submit" value="أرسل" />
             </form>
-          </JoinUsFormContainer>
-        </JoinUsContainer>
+          </FormContainer>
+          <FormContainer style={{backgroundColor: "rgb(243, 243, 243)"}}></FormContainer>
+        </Container>
       )
     }
     else{
       return (
-        <JoinUsContainer id="join-us">
-          <JoinUsTextContainer>
-            <JoinUsText>{EnglishHTML.text}</JoinUsText>
-            <JoinUsSubText>{EnglishHTML.subtext}</JoinUsSubText>
-          </JoinUsTextContainer>
+        <Container id="join-us">
+          <TextGroup>
+            <Text>{EnglishHTML.text}</Text>
+            <SubText>{EnglishHTML.subtext}</SubText>
+          </TextGroup>
   
-          <JoinUsFormContainer isRTL={this.state.isJoinUsStateRTL}>
-            <form onSubmit={this.handleSubmit}>
+          <FormContainer isRTL={this.state.isJoinUsStateRTL}>
+            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}>
                 <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.state.isJoinUsStateRTL}/>
                 <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.state.isJoinUsStateRTL}/>
                 <Input placeholder={EnglishHTML.mobile}           type="text"   pattern="/05\d{8}/" isRTL={this.state.isJoinUsStateRTL} />
                 <Input placeholder={EnglishHTML.location}         type="text"   isRTL={this.state.isJoinUsStateRTL}/>
                 <Submit type="submit" value="Submit" />
             </form>
-          </JoinUsFormContainer>
-        </JoinUsContainer>
+          </FormContainer>
+          <FormContainer style={{backgroundColor: "rgb(243, 243, 243)"}}></FormContainer>
+        </Container>
       )
     }
   }
@@ -83,63 +86,51 @@ export default class JoinUs extends Component {
 
 
 /* CSS Styled Components Only Below this comment*/
-const JoinUsContainer = styled.section`
-  padding-right:  10%;
-  padding-left:   10%;
-  padding-top:    100px;
-  margin-top:     -50px;
-  width: 100%;
-  background-color: #f3f3f3;
-`;
-const JoinUsTextContainer = styled.div`
-  text-align: center!important;
+const Container = styled.section`
+  padding-right:        10%;
+  padding-left:         10%;
+  margin-top:           -50px;
 
-`;
-const JoinUsText = styled.h2`
-  margin-bottom: 10px !important;
-  max-width: 667px;
-    float: none;
-    margin: 0 auto;
-    margin-bottom: 40px;
-    position: relative;
-`;
-const JoinUsSubText = styled.p`
-padding-top: 40px;
-  color: rgb(98, 98, 98);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
-  font-size: 16px;
+  width:                100%;
+  background-color:     rgb(243, 243, 243);
+  @media screen and (max-width: 500px) {
+    padding-right:        5%;
+    padding-left:         5%;
+  }  
 `;
 
-const JoinUsFormContainer = styled.div`
-  padding-top: 3%;
-  padding-bottom: 1.5%;
-  text-align: center!important;
-  background-color: white;
-  border: none;
-  border-radius: 15px;
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-bottom: 100px;
+const TextGroup = styled.div`
+  padding-top:          5%;
+  text-align:           center!important;
+  @media screen and (max-width: 500px) {
+    padding-top:            10%;
+  }
+   
 `;
 
-const Input = styled.input`
-  text-align: ${props => props.isRTL ? 'right' : 'left'};
-  margin-bottom: 5px;
-  padding: 5px 15px 15px 5px;
-  background-color: #f3f3f3;
-  cursor: auto;
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
-  width: 80%;
-  
+const Text = styled(H1)`
+  transition:           color 0.5s;
+  &:hover{
+    color:                  #C12336;
+  }
 `;
-const Submit = styled.input`
-  padding: 5px 15px 15px 5px;
-  color: #fff;
-  background: #C12336;
-  cursor: auto;
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
-  width: 50%;
-  height: 50%;
+
+const SubText = styled(P)`
+  font-size:            large;
 `;
+
+const FormContainer = styled.div`
+    margin-left:        20%;
+    margin-right:       20%;
+    padding-top:        5%;
+    padding-bottom:     5%;
+    text-align:         center;
+    border:             none;
+    background-color:   white;
+    @media screen and (max-width: 500px) {
+      margin-left:        auto;
+      margin-right:       auto;
+    }
+`;
+
+
