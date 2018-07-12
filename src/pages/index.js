@@ -55,7 +55,7 @@ export default class IndexPage extends Component {
         <Nav scrolling={this.state.scrolling} display={this.state.display}>
           <a href="#main"><Img  isRTL={this.state.isIndexStateRTL} scrolling={this.state.scrolling}/></a>
           <Right isRTL={this.state.isIndexStateRTL}>
-            <Close onClick={this.changeNav} isRTL={this.state.isMainStateRTL} >PRESS</Close>
+            <Close onClick={this.changeNav} isRTL={this.state.isMainStateRTL} >></Close>
             <A  onClick={this.changeToRTL}  isRTL={this.state.isIndexStateRTL}>{EnglishHTML.arabic}</A>
             <A  onClick={this.changeToLTR}  isRTL={this.state.isIndexStateRTL}>{EnglishHTML.english}</A>
             <A  href="#join-us"             isRTL={this.state.isIndexStateRTL}>{this.state.isIndexStateRTL? ArabicHTML.joinUs : EnglishHTML.joinUs}</A>
