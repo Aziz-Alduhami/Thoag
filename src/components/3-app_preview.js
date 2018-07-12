@@ -115,7 +115,7 @@ export default class AppPreview extends Component {
       return(
         <Grid>
           <Feature_01 id="F1"
-                      onMouseOver={this.changeImage} 
+                      onClick={this.changeImage} 
                       active={this.state.active}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F1" newID="F1" number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} />
