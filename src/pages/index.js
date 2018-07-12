@@ -82,7 +82,8 @@ export default class IndexPage extends Component {
 const Nav = styled.div`
   box-sizing:         border-box;
   padding:            5px 10%;
-  max-height:         50px;
+  max-height:         ${props => props.scrolling? "50px" : "200px"};
+  transition:         max-height 0.25s ease-in;
   overflow:           hidden;
   position:           fixed;
   width:              100%;
@@ -97,16 +98,19 @@ const Nav = styled.div`
     display: block;
     text-align: center;
     background-color: black;
-    max-height: ${props => props.display? "400px" : "50px"}
+    max-height: ${props => props.display? "400px" : "50px"};
   }
 `;
 const Img = styled.img.attrs({
   src:                LogoImage,
 })`
-  max-height:         ${props => props.scrolling? "80%" : "115%"};
-  transition:         max-height 0.25s ease-in;
+  max-height:         ${props => props.scrolling? "45px" : "200px"};
+  transition:         max-height 0.1s ease-in;
   float:              ${props => props.isRTL ? 'right' : 'left'};
 
+  @media screen and (max-width: 1100px){
+    max-height:         ${props => props.scrolling? "45px" : "60px"};
+  }
   @media screen and (max-width: 800px){
     display: none;
   }
@@ -147,18 +151,18 @@ const A = styled.a`
   }
 `;
 
-const Button = styled.button`
-  box-sizing:   border-box;
-  float:        ${props => props.isRTL ? 'left' : 'right'};
-  background-color: ${props => props.active ? 'rgb(193, 35, 54)' : 'rgba(0,0,0,0)'};
-  color: ${props => props.active ?            'rgb(193, 35, 54)' : 'white'};
-  text-align:   center;
-  padding:      12px;
-  text-decoration: none;
+// const Button = styled.button`
+//   box-sizing:   border-box;
+//   float:        ${props => props.isRTL ? 'left' : 'right'};
+//   background-color: ${props => props.active ? 'rgb(193, 35, 54)' : 'rgba(0,0,0,0)'};
+//   color: ${props => props.active ?            'rgb(193, 35, 54)' : 'white'};
+//   text-align:   center;
+//   padding:      12px;
+//   text-decoration: none;
 
-  border:       none;
-  border-radius: 3px;
-`;
+//   border:       none;
+//   border-radius: 3px;
+// `;
 
 
 const Close = styled.span`
