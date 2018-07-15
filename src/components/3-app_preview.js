@@ -72,38 +72,38 @@ export default class AppPreview extends Component {
       return(
         <Grid>
         <Feature_01 id="F1"
-                    onClick={this.changeImage} 
+                    onMouseOver={this.changeImage} 
                     active={this.state.active}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F1" newID="F1" number={ArabicHTML[0].number} title={ArabicHTML[0].title} content={ArabicHTML[0].content} />
         </Feature_01>
         <Feature_02 id="F2"
-                    onClick={this.changeImage} 
+                    onMouseOver={this.changeImage} 
                     active={this.state.active}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F2" newID="F2" number={ArabicHTML[1].number} title={ArabicHTML[1].title} content={ArabicHTML[1].content} />
         </Feature_02>
         <Feature_03 id="F3"
-                    onClick={this.changeImage} 
+                    onMouseOver={this.changeImage} 
                     active={this.state.active}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F3" newID="F3" number={ArabicHTML[2].number} title={ArabicHTML[2].title} content={ArabicHTML[2].content} />
         </Feature_03>
         <MobileImage><AppPreviewImage active={this.state.active}/></MobileImage>
         <Feature_04 id="F4"
-                    onClick={this.changeImage} 
+                    onMouseOver={this.changeImage} 
                     active={this.state.active}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F4" newID="F4" number={ArabicHTML[3].number} title={ArabicHTML[3].title} content={ArabicHTML[3].content} />
         </Feature_04>
         <Feature_05 id="F5"
-                    onClick={this.changeImage} 
+                    onMouseOver={this.changeImage} 
                     active={this.state.active}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F5" newID="F5" number={ArabicHTML[4].number} title={ArabicHTML[4].title} content={ArabicHTML[4].content} />
         </Feature_05>
         <Feature_06 id="F6"
-                    onClick={this.changeImage} 
+                    onMouseOver={this.changeImage} 
                     active={this.state.active}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F6" newID="F6" number={ArabicHTML[5].number} title={ArabicHTML[5].title} content={ArabicHTML[5].content} />
@@ -115,38 +115,38 @@ export default class AppPreview extends Component {
       return(
         <Grid>
           <Feature_01 id="F1"
-                      onClick={this.changeImage} 
+                      onMouseOver={this.changeImage} 
                       active={this.state.active}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F1" newID="F1" number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} />
           </Feature_01>
           <Feature_02 id="F2"
-                      onClick={this.changeImage} 
+                      onMouseOver={this.changeImage} 
                       active={this.state.active}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F2" newID="F2" number={EnglishHTML[1].number} title={EnglishHTML[1].title} content={EnglishHTML[1].content} />
           </Feature_02>
           <Feature_03 id="F3"
-                      onClick={this.changeImage} 
+                      onMouseOver={this.changeImage} 
                       active={this.state.active}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F3" newID="F3" number={EnglishHTML[2].number} title={EnglishHTML[2].title} content={EnglishHTML[2].content} />
           </Feature_03>
           <MobileImage><AppPreviewImage active={this.state.active}/></MobileImage>
           <Feature_04 id="F4"
-                      onClick={this.changeImage} 
+                      onMouseOver={this.changeImage} 
                       active={this.state.active}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F4" newID="F4" number={EnglishHTML[3].number} title={EnglishHTML[3].title} content={EnglishHTML[3].content} />
           </Feature_04>
           <Feature_05 id="F5"
-                      onClick={this.changeImage} 
+                      onMouseOver={this.changeImage} 
                       active={this.state.active}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F5" newID="F5" number={EnglishHTML[4].number} title={EnglishHTML[4].title} content={EnglishHTML[4].content} />
           </Feature_05>
           <Feature_06 id="F6"
-                      onClick={this.changeImage} 
+                      onMouseOver={this.changeImage} 
                       active={this.state.active}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F6" newID="F6" number={EnglishHTML[5].number} title={EnglishHTML[5].title} content={EnglishHTML[5].content} />
@@ -161,7 +161,7 @@ class App_Feature extends Component {
   render() {
     return (
       <div>
-        <AppFeatureNumber   id={this.props.newID}>{ this.props.number  }</AppFeatureNumber>
+        {/* <AppFeatureNumber   id={this.props.newID}>{ this.props.number  }</AppFeatureNumber> */}
         <AppFeatureTitle    id={this.props.newID}>{ this.props.title   }</AppFeatureTitle>
         <AppFeatureSubTitle id={this.props.newID}>{ this.props.content }</AppFeatureSubTitle>
       </div>
@@ -175,11 +175,12 @@ class App_Feature extends Component {
 const Grid = styled.section.attrs({
   id: "app-preview"
 })`
+
   box-sizing:           inherit;
   overflow:             hidden;
   padding-right:        10%;
   padding-left:         10%;
-  padding-top:          100px;
+  padding-top:          200px;
   margin-top:           -50px;
   margin-bottom:        100px;
   
@@ -205,17 +206,23 @@ const MobileImage = styled.div`
   grid-area:          MobileImage;
   margin-left:        auto;
   margin-right:       auto;
+  width:80%;
+  height: auto;
   @media screen and (max-width: 500px) {
     display:             none;
   }    
 `;
 
 const Feature_01  = styled.div`
+  padding-top: 70px;
   text-align:         ${props => props.isRTL? "right" : "left"};
   grid-area:          Feature_01;
   opacity:            0.6;
   transition:         opacity 0.5s ease;
   :hover{
+    opacity:            1;
+  }
+  @media screen and (max-width: 500px) {
     opacity:            1;
   }
 `;

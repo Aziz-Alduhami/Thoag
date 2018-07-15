@@ -122,17 +122,24 @@ export default class About extends Component {
 class Service extends Component {
   render(){
     return (
-      <div>
-        <div style={{overflow: "hidden"}}><ServiceImg src={this.props.img} /></div>
+      <ServeStyled>
+        <div style={{overflow: "hidden"}}><ServiceImg src={this.props.img}/></div>
         <GrpSerText isRTL={this.props.isRTL}>
           <ServiceText>{this.props.title}</ServiceText>
-          <ServiceSubText    >{this.props.content}</ServiceSubText>
+          <ServiceSubText>{this.props.content}</ServiceSubText>
         </GrpSerText>
-      </div>
+      </ServeStyled>
     )
   }
 }
 
+const ServeStyled = styled.div`
+  margin: 1.5px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(rgb(68, 68, 68), white);
+`;
 
 /* CSS Styled Components Only Below this comment*/
 const Container = styled.section`
@@ -165,24 +172,27 @@ const ServicesContainer = styled.div`
   }
 `;
 const ServiceImg = styled.img`
-  margin-top:            -24px;
+  ${'' /* margin-top:            -24px; */}
   margin-bottom:         -24px;
-  padding:               5%;
+  ${'' /* padding:               5%; */}
   width:                 auto;
   height:                auto;
   overflow:              hidden;
   transition-duration:   0.5s;
+
   &:hover{
     -webkit-transform:        scale(1.2);
     -ms-transform:            scale(1.2);
     transform:                scale(1.2);
+    border-radius: 78px;
   }
+  border-radius: 20px;
 `;
 
 /** Service text container */
 const GrpSerText = styled.div`
   text-align:           ${props => props.isRTL ? 'right' : 'left'};
-  padding:              ${props => props.isRTL ? '0 60px 0 0':'0 0 0 60px'};
+  padding:              ${props => props.isRTL ? '0 40px 0 0':'0 0 0 40px'};
   overflow:             hidden;
 `;
 
@@ -191,6 +201,10 @@ const ServiceText = styled(H1)`
   font-size:            x-large;
   text-transform:       initial;
   font-weight:          bold;
+  ${'' /* text-align: justify;
+    text-justify: inter-character;
+    color: white; */}
+    color: white;
 `;
 
 const ServiceSubText = styled(P)`
