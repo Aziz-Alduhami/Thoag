@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
-
+/**Components */
 import {H1, P} from '../styles/Mystyles'
 
 /* Depending on the brower language use one of the two objects */

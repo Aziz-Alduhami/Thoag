@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
-
+/**Components */
 import {H1, P} from '../styles/Mystyles'
-
+/**Images */
 import f_image0 from '../images/about/01.jpg'
 import f_image1 from '../images/about/02.jpg'
 import f_image2 from '../images/about/03.jpg'

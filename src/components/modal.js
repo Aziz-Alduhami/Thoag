@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
-
+/**Components */
 import {H1, P, Input, Select, Submit} from '../styles/Mystyles'
 
 
@@ -68,7 +68,7 @@ export default class Modal extends Component {
           	<Text>{ArabicHTML_Modal.tile}</Text>
             <SubText>{ArabicHTML_Modal.subtitle}</SubText>
           </TextContainer>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} netlify >
           	<Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.firstName}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.lastName}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.email}/>
@@ -102,7 +102,7 @@ export default class Modal extends Component {
             <Text>{EnglisHTML_Modal.tile}</Text>
             <SubText>{EnglisHTML_Modal.subtitle}</SubText>
           </TextContainer>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} netlify >
           	<Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email}/>
