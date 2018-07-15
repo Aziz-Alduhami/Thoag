@@ -74,7 +74,7 @@ export default class JoinUs extends Component {
                 <input type="hidden" name="form-name" value="joinUs" />  
                 <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.state.isJoinUsStateRTL} name="name"/>
                 <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.state.isJoinUsStateRTL} name="ema"/>
-                <Input placeholder={EnglishHTML.mobile}           type="text"   pattern="/05\d{8}/" isRTL={this.state.isJoinUsStateRTL} name="mob" />
+                <Input placeholder={EnglishHTML.mobile}           type="text"   isRTL={this.state.isJoinUsStateRTL} name="mob" />
                 <Input placeholder={EnglishHTML.location}         type="text"   isRTL={this.state.isJoinUsStateRTL} name="loc"/>
                 <Submit type="submit" value="Submit" />
             </form>
