@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Modal from './modal'
 import {ImgButton, H1, P} from '../styles/Mystyles'
 /**Images */
-import BgImg from '../images/bgImage.jpg'
+import BgImg from '../images/main/bgImage.jpg'
 import AppleAppStoreImage from '../images/main/App_Store_Badge_EN.svg'
 import GooglePlayImage from '../images/main/google-play-badge-EN.png'
 
@@ -24,8 +24,7 @@ const EnglishHTML = {main_text:" THOAG IS A CREATIVE CATERING LISTING COMPANY IN
 
 /* APPS URLS */
 const iOS_URL = "https://itunes.apple.com/sa/app/thoag-%D8%B0%D9%88%D9%82/id1344937327?mt=8";
-const Android_URL = ""
-;
+const Android_URL = "";
 
 
 /* Main component */
@@ -35,7 +34,7 @@ export default class Main extends Component {
     super(props);
     this.state = {
       isMainStateRTL: this.props.isRTL,
-      display: false,
+      isModalOpen: false,
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -44,26 +43,23 @@ export default class Main extends Component {
     this.setState({ isMainStateRTL: nextProps.isRTL });
   }
   openModal(event) {
-    this.setState({ display: true });
+    this.setState({ isModalOpen: true });
   }
   closeModal(event){
-    this.setState({ display: false });
+    this.setState({ isModalOpen: false });
   }
   render() {
     if(this.state.isMainStateRTL){
       return(
         <MainContainer id="main" isRTL={this.state.isMainStateRTL}>
-
             <TextContainer>
               <Text>{ArabicHTML.main_text}</Text>
               <SubText>{ArabicHTML.sub_text}</SubText>
             </TextContainer>
             
-          <BtnQuotation onClick={this.openModal}>
-            {ArabicHTML.button_getPrice}
-          </BtnQuotation>
+          <BtnQuotation onClick={this.openModal}>{ArabicHTML.button_getPrice}</BtnQuotation>
 
-          <ModalContainer display={this.state.display} isRTL={this.state.isMainStateRTL}>
+          <ModalContainer isModalOpen={this.state.isModalOpen} isRTL={this.state.isMainStateRTL}>
             <MContent>
               <Close onClick={this.closeModal} isRTL={this.state.isMainStateRTL}>&times;</Close>
                 <Modal isRTL={this.state.isMainStateRTL}/>
@@ -83,7 +79,7 @@ export default class Main extends Component {
     }
     else{
       return(
-        <MainContainer id="main" isRTL={this.state.isMainStateRTL}>
+        <MainContainer id="main" isRTL={this.state.isMainStateRTL}> 
             <TextContainer>
               <Text>{EnglishHTML.main_text}</Text>
               <SubText>{EnglishHTML.sub_text}</SubText>
@@ -91,7 +87,7 @@ export default class Main extends Component {
 
           <BtnQuotation onClick={this.openModal}>{EnglishHTML.button_getPrice}</BtnQuotation>
 
-          <ModalContainer display={this.state.display} isRTL={this.state.isMainStateRTL}>
+          <ModalContainer isModalOpen={this.state.isModalOpen} isRTL={this.state.isMainStateRTL}>
             <MContent >
               <Close onClick={this.closeModal} isRTL={this.state.isMainStateRTL} >&times;</Close>
                 <Modal isRTL={this.state.isMainStateRTL}/>
@@ -112,16 +108,15 @@ export default class Main extends Component {
   }
 }
 
-/* CSS Styled Components Only Below this comment*/
+
 const MainContainer = styled.section`
     background:       linear-gradient( rgba(33, 37, 41, 0.65), rgba(33, 37, 41, 0.55) ), url(${BgImg}) no-repeat;
     background-size:  cover;
     direction:        ${props => props.isRTL ? 'rtl' : 'ltr'};
     text-align:       center;
     z-index:          -1;
-    padding-top:    100px;
-    margin-top:     -100px;
-
+    padding-top:      100px;
+    margin-top:       -100px;
 `;
 
 const TextContainer = styled.div`
@@ -202,7 +197,7 @@ const ModalContainer = styled.div`
     background-color:   rgb(0,0,0);
     background-color:   rgba(0,0,0,0.4); 
     transition:         background-color 0.5s ease;
-    display:            ${props => props.display? "block" : "none"};
+    display:            ${props => props.isModalOpen? "block" : "none"};
     @media screen and (max-width: 500px) {
       padding-left:       5%;
       padding-right:      5%;

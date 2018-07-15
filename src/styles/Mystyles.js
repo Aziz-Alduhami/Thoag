@@ -1,10 +1,21 @@
 import styled from "styled-components";
+import { injectGlobal } from 'styled-components'
 
+
+injectGlobal`
+	@font-face {
+	    font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Tajawal'), local('Tajawal-Regular'), url(https://fonts.gstatic.com/s/tajawal/v1/Iura6YBj_oCad4k1nzSBC45I.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+	}
+`
 
 export const H1 = styled.h1`
     color:            rgb(54, 54, 54);
     ${'' /* display:          inline-block; */}
-    font-family:      "Noto Sans", sans-serif;
+    font-family:      "Noto Sans", sans-serif, 'Tajawal';
     font-size:        xx-large;
     font-weight:      700;
     left:             0;       

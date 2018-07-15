@@ -8,11 +8,11 @@ import FAQ from '../components/4-faq'
 import JoinUs from '../components/5-join_us'
 import Footer from '../components/6-footer'
 import styled from "styled-components"
-import LogoImage from '../images/logo.png'
+import LogoImage from '../images/nav/logo.png'
 
 
-const ArabicHTML = {home:"الرئيسية" , about: "من نحن" , faq:"أسئلة شائعة" ,app_preview: "مميزات التطبيق", joinUs: "انضمام مقدمي الخدمة", english: "English", arabic: "عربي"};
-const EnglishHTML = {home:"Main" , about: "About Us" , faq:"FAQ" ,app_preview: "App Features", joinUs: "Join Us",english: "English", arabic: "عربي"};
+const ArabicHTML = {home:"الرئيسية" , about: "من نحن" , faq:"أسئلة شائعة" ,app_preview: "مميزات التطبيق", joinUs: "انضمام مقدمي الخدمة", english: "English", arabic: "العربية"};
+const EnglishHTML = {home:"Main" , about: "About Us" , faq:"FAQ" ,app_preview: "App Features", joinUs: "Join Us",english: "English", arabic: "العربية"};
 
 
 export default class IndexPage extends Component {

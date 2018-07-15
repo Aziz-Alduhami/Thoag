@@ -76,11 +76,11 @@ export default class Modal extends Component {
             <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.timing}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.budget}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.guests}/>
-            
-						<Select name="menu"				>{ ArabicHTML_MenuReq.map( (index) 		=> <option key={index} value={index}>{index}</option> ) }</Select>
-            <Select name="speial-req"	>{ ArabicHTML_SpecialReq.map( (index) => <option key={index} value={index}>{index}</option> ) }</Select>
-        		<Select name="how"				>{ ArabicHTML_HowDidYou.map((index) 	=> <option key={index} value={index}>{index}</option> ) }</Select>
-            <Select name="location"		>{ ArabicHTML_Location.map( (index) 	=> <option key={index} value={index}>{index}</option> ) }</Select>
+            {/* disabled={index == 0? true: false} */}
+						<Select name="menu"				>{ ArabicHTML_MenuReq.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
+            <Select name="speial-req"	>{ ArabicHTML_SpecialReq.map( (element,index) => <option key={index} value={element}>{element}</option> ) }</Select>
+        		<Select name="how"				>{ ArabicHTML_HowDidYou.map((element,index)	  => <option key={index} value={element}>{element}</option> ) }</Select>
+            <Select name="location"		>{ ArabicHTML_Location.map( (element,index) 	=> <option key={index} value={element}>{element}</option> ) }</Select>
 
             <EventType isRTL={this.props.isRTL}>
 							<Label>{ArabicHTML_EventType[0]}</Label><br />
@@ -111,10 +111,10 @@ export default class Modal extends Component {
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.budget}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.guests}/>
         
-            <Select name="menu"				>{ EnglishHTNL_MenuReq.map( (index) 		=> <option key={index} value={index}>{index}</option> ) }</Select>
-            <Select name="speial-req"	>{ English_HTML_SpecialReq.map( (index) => <option key={index} value={index}>{index}</option> ) }</Select>
-        		<Select name="how"				>{ EnglishHTML_HowDidYou.map((index) 		=> <option key={index} value={index}>{index}</option> ) }</Select>
-            <Select name="location"		>{ EnglishHTML_Location.map( (index) 		=> <option key={index} value={index}>{index}</option> ) }</Select>
+            <Select name="menu"				>{ EnglishHTNL_MenuReq.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
+            <Select name="speial-req"	>{ English_HTML_SpecialReq.map( (element,index) => <option key={index} value={element}>{element}</option> ) }</Select>
+        		<Select name="how"				>{ EnglishHTML_HowDidYou.map((element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
+            <Select name="location"		>{ EnglishHTML_Location.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
 
 						<EventType isRTL={this.props.isRTL}>
 							<Label>{EnglishHTML_EventType[0]}</Label><br />
