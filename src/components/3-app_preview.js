@@ -36,7 +36,7 @@ export default class AppPreview extends Component {
     super(props);
     this.state = {
       isAppPreviewtStateRTL: this.props.isRTL,
-      activeImage: 1,
+      activeImage: '1',
     }
     this.changeImage = this.changeImage.bind(this);
   }
