@@ -36,7 +36,7 @@ export default class AppPreview extends Component {
     super(props);
     this.state = {
       isAppPreviewtStateRTL: this.props.isRTL,
-      active: Image_01,
+      activeImage: 1,
     }
     this.changeImage = this.changeImage.bind(this);
   }
@@ -49,22 +49,22 @@ export default class AppPreview extends Component {
 
   changeImage(event){
     if(event.target.id === "F1"){
-      this.setState({active: Image_01});
+      this.setState({activeImage:'1'});
     }
     if(event.target.id === "F2"){
-      this.setState({active: Image_02});
+      this.setState({activeImage: '2'});
     }
     if(event.target.id === "F3"){
-      this.setState({active: Image_03});
+      this.setState({activeImage: '3'});
     }
     if(event.target.id === "F4"){
-      this.setState({active: Image_04});
+      this.setState({activeImage: '4'});
     }
     if(event.target.id === "F5"){
-      this.setState({active: Image_05});
+      this.setState({activeImage: '5'});
     }
     if(event.target.id === "F6"){
-      this.setState({active: Image_06});
+      this.setState({activeImage: '6'});
     }
   }
   render() {
@@ -73,38 +73,43 @@ export default class AppPreview extends Component {
         <Grid>
         <Feature_01 id="F1"
                     onMouseOver={this.changeImage} 
-                    active={this.state.active}
+                    activeImage={this.state.activeImage}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F1" newID="F1" number={ArabicHTML[0].number} title={ArabicHTML[0].title} content={ArabicHTML[0].content} />
         </Feature_01>
         <Feature_02 id="F2"
                     onMouseOver={this.changeImage} 
-                    active={this.state.active}
+                    activeImage={this.state.activeImage}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F2" newID="F2" number={ArabicHTML[1].number} title={ArabicHTML[1].title} content={ArabicHTML[1].content} />
         </Feature_02>
         <Feature_03 id="F3"
                     onMouseOver={this.changeImage} 
-                    active={this.state.active}
+                    activeImage={this.state.activeImage}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F3" newID="F3" number={ArabicHTML[2].number} title={ArabicHTML[2].title} content={ArabicHTML[2].content} />
         </Feature_03>
-        <MobileImage><AppPreviewImage active={this.state.active}/></MobileImage>
+        <MobileImage><AppPreviewImage imageNumber='1' activeImage={this.state.activeImage} src={Image_01}/></MobileImage>
+        <MobileImage><AppPreviewImage imageNumber='2' activeImage={this.state.activeImage} src={Image_02}/></MobileImage>
+        <MobileImage><AppPreviewImage imageNumber='3' activeImage={this.state.activeImage} src={Image_03}/></MobileImage>
+        <MobileImage><AppPreviewImage imageNumber='4' activeImage={this.state.activeImage} src={Image_04}/></MobileImage>
+        <MobileImage><AppPreviewImage imageNumber='5' activeImage={this.state.activeImage} src={Image_05}/></MobileImage>
+        <MobileImage><AppPreviewImage imageNumber='6' activeImage={this.state.activeImage} src={Image_06}/></MobileImage>
         <Feature_04 id="F4"
                     onMouseOver={this.changeImage} 
-                    active={this.state.active}
+                    activeImage={this.state.activeImage}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F4" newID="F4" number={ArabicHTML[3].number} title={ArabicHTML[3].title} content={ArabicHTML[3].content} />
         </Feature_04>
         <Feature_05 id="F5"
                     onMouseOver={this.changeImage} 
-                    active={this.state.active}
+                    activeImage={this.state.activeImage}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F5" newID="F5" number={ArabicHTML[4].number} title={ArabicHTML[4].title} content={ArabicHTML[4].content} />
         </Feature_05>
         <Feature_06 id="F6"
                     onMouseOver={this.changeImage} 
-                    active={this.state.active}
+                    activeImage={this.state.activeImage}
                     isRTL={this.state.isAppPreviewtStateRTL}>
           <App_Feature id="F6" newID="F6" number={ArabicHTML[5].number} title={ArabicHTML[5].title} content={ArabicHTML[5].content} />
         </Feature_06>
@@ -116,38 +121,43 @@ export default class AppPreview extends Component {
         <Grid>
           <Feature_01 id="F1"
                       onMouseOver={this.changeImage} 
-                      active={this.state.active}
+                      activeImage={this.state.activeImage}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F1" newID="F1" number={EnglishHTML[0].number} title={EnglishHTML[0].title} content={EnglishHTML[0].content} />
           </Feature_01>
           <Feature_02 id="F2"
                       onMouseOver={this.changeImage} 
-                      active={this.state.active}
+                      activeImage={this.state.activeImage}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F2" newID="F2" number={EnglishHTML[1].number} title={EnglishHTML[1].title} content={EnglishHTML[1].content} />
           </Feature_02>
           <Feature_03 id="F3"
                       onMouseOver={this.changeImage} 
-                      active={this.state.active}
+                      activeImage={this.state.activeImage}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F3" newID="F3" number={EnglishHTML[2].number} title={EnglishHTML[2].title} content={EnglishHTML[2].content} />
           </Feature_03>
-          <MobileImage><AppPreviewImage active={this.state.active}/></MobileImage>
+          <MobileImage><AppPreviewImage imageNumber='1' activeImage={this.state.activeImage} src={Image_01}/></MobileImage>
+          <MobileImage><AppPreviewImage imageNumber='2' activeImage={this.state.activeImage} src={Image_02}/></MobileImage>
+          <MobileImage><AppPreviewImage imageNumber='3' activeImage={this.state.activeImage} src={Image_03}/></MobileImage>
+          <MobileImage><AppPreviewImage imageNumber='4' activeImage={this.state.activeImage} src={Image_04}/></MobileImage>
+          <MobileImage><AppPreviewImage imageNumber='5' activeImage={this.state.activeImage} src={Image_05}/></MobileImage>
+          <MobileImage><AppPreviewImage imageNumber='6' activeImage={this.state.activeImage} src={Image_06}/></MobileImage>
           <Feature_04 id="F4"
                       onMouseOver={this.changeImage} 
-                      active={this.state.active}
+                      activeImage={this.state.activeImage}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F4" newID="F4" number={EnglishHTML[3].number} title={EnglishHTML[3].title} content={EnglishHTML[3].content} />
           </Feature_04>
           <Feature_05 id="F5"
                       onMouseOver={this.changeImage} 
-                      active={this.state.active}
+                      activeImage={this.state.activeImage}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F5" newID="F5" number={EnglishHTML[4].number} title={EnglishHTML[4].title} content={EnglishHTML[4].content} />
           </Feature_05>
           <Feature_06 id="F6"
                       onMouseOver={this.changeImage} 
-                      active={this.state.active}
+                      activeImage={this.state.activeImage}
                       isRTL={this.state.isAppPreviewtStateRTL}>
             <App_Feature id="F6" newID="F6" number={EnglishHTML[5].number} title={EnglishHTML[5].title} content={EnglishHTML[5].content} />
           </Feature_06>
@@ -242,15 +252,8 @@ const Feature_06 = styled(Feature_01)`
   grid-area:          Feature_06;
 `;
 
-const AppPreviewImage = styled.img.attrs({
-  src: props => props.active,
-})`
-  background: url(${Image_01}) no-repeat -9999px -9999px;
-  background: url(${Image_02}) no-repeat -9999px -9999px;
-  background: url(${Image_03}) no-repeat -9999px -9999px;
-  background: url(${Image_04}) no-repeat -9999px -9999px;
-  background: url(${Image_05}) no-repeat -9999px -9999px;
-  background: url(${Image_06}) no-repeat -9999px -9999px;
+const AppPreviewImage = styled.img`
+  display:              ${props => props.activeImage === props.imageNumber? "initial" : "none"};
   width:                auto;
   height:               auto;
 `;
