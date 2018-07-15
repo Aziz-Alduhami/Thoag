@@ -104,7 +104,7 @@ const Nav = styled.div`
 const Img = styled.img.attrs({
   src:                LogoImage,
 })`
-  max-height:         ${props => props.scrolling? "45px" : "200px"};
+  max-height:         ${props => props.scrolling? "42px" : "90px"};
   transition:         max-height 0.1s ease-in;
   float:              ${props => props.isRTL ? 'right' : 'left'};
 
