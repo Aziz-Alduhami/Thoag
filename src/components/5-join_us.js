@@ -48,7 +48,7 @@ export default class JoinUs extends Component {
           </TextGroup>
   
           <FormContainer isRTL={this.state.isJoinUsStateRTL}>
-            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}>
+            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}} netlify >
                 <Input placeholder={ArabicHTML.business_name} type="text" isRTL={this.state.isJoinUsStateRTL}/>
                 <Input placeholder={ArabicHTML.email} type="text" isRTL={this.state.isJoinUsStateRTL}/>
                 <Input placeholder={ArabicHTML.mobile} type="text" pattern="" isRTL={this.state.isJoinUsStateRTL}/>
@@ -69,11 +69,11 @@ export default class JoinUs extends Component {
           </TextGroup>
   
           <FormContainer isRTL={this.state.isJoinUsStateRTL}>
-            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}>
-                <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.state.isJoinUsStateRTL}/>
-                <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.state.isJoinUsStateRTL}/>
-                <Input placeholder={EnglishHTML.mobile}           type="text"   pattern="/05\d{8}/" isRTL={this.state.isJoinUsStateRTL} />
-                <Input placeholder={EnglishHTML.location}         type="text"   isRTL={this.state.isJoinUsStateRTL}/>
+            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}  method="POST" netlify>
+                <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.state.isJoinUsStateRTL} name="name"/>
+                <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.state.isJoinUsStateRTL} name="ema"/>
+                <Input placeholder={EnglishHTML.mobile}           type="text"   pattern="/05\d{8}/" isRTL={this.state.isJoinUsStateRTL} name="mob" />
+                <Input placeholder={EnglishHTML.location}         type="text"   isRTL={this.state.isJoinUsStateRTL} name="loc"/>
                 <Submit type="submit" value="Submit" />
             </form>
           </FormContainer>
