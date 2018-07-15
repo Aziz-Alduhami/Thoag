@@ -69,7 +69,7 @@ export default class JoinUs extends Component {
           </TextGroup>
   
           <FormContainer isRTL={this.state.isJoinUsStateRTL}>
-            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}  method="POST" netlify>
+            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}  method="POST" netlify="true" name="joinUs">
                 <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.state.isJoinUsStateRTL} name="name"/>
                 <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.state.isJoinUsStateRTL} name="ema"/>
                 <Input placeholder={EnglishHTML.mobile}           type="text"   pattern="/05\d{8}/" isRTL={this.state.isJoinUsStateRTL} name="mob" />
