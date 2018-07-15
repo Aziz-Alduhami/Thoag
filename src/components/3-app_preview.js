@@ -214,7 +214,7 @@ const MobileImage = styled.div`
 `;
 
 const Feature_01  = styled.div`
-  padding-top: 70px;
+  padding-top:        70px;
   text-align:         ${props => props.isRTL? "right" : "left"};
   grid-area:          Feature_01;
   opacity:            0.6;
@@ -245,6 +245,12 @@ const Feature_06 = styled(Feature_01)`
 const AppPreviewImage = styled.img.attrs({
   src: props => props.active,
 })`
+  background: url(${Image_01}) no-repeat -9999px -9999px;
+  background: url(${Image_02}) no-repeat -9999px -9999px;
+  background: url(${Image_03}) no-repeat -9999px -9999px;
+  background: url(${Image_04}) no-repeat -9999px -9999px;
+  background: url(${Image_05}) no-repeat -9999px -9999px;
+  background: url(${Image_06}) no-repeat -9999px -9999px;
   width:                auto;
   height:               auto;
 `;
