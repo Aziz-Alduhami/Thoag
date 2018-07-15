@@ -102,10 +102,10 @@ export default class Modal extends Component {
             <Text>{EnglisHTML_Modal.tile}</Text>
             <SubText>{EnglisHTML_Modal.subtitle}</SubText>
           </TextContainer>
-          <form onSubmit={this.handleSubmit} netlify >
-          	<Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email}/>
+          <form onSubmit={this.handleSubmit} netlify name="modal-form">
+          	<Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName} name="name"/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName} name="last"/>
+            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email} name="email"/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.mobile}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.timing}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.budget}/>
