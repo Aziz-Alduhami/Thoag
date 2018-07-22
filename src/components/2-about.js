@@ -71,47 +71,41 @@ const EnglishHTML_Features =[{
 
 /* About component */
 export default class About extends Component {
-  /* props: isRTL  */
+  //State: none
+  //Props: isRTL from Index
   constructor(props){
     super(props);
-    this.state = {
-      isAboutStateRTL: this.props.isRTL,
-    }
-  }
-  componentWillReceiveProps(nextProps) {
-    this.setState({ isAboutStateRTL: nextProps.isRTL });
+    console.log("About: ");
+    console.log(this.state);
+    console.log(this.props);
+    console.log(window.innerWidth)
   }
   render() {
-    return (           
+    return (
       <Container id="about">
-
-        <TextContainer isRTL={this.state.isAboutStateRTL}>
-          <Text    >{this.state.isAboutStateRTL? ArabicHTML.title : EnglishHTML.title}</Text>
-          <SubText >{this.state.isAboutStateRTL? ArabicHTML.content : EnglishHTML.content}</SubText>
+        <TextContainer {...this.props}>
+          <Text    >{this.props.isRTL? ArabicHTML.title : EnglishHTML.title}</Text>
+          <SubText >{this.props.isRTL? ArabicHTML.content : EnglishHTML.content}</SubText>
         </TextContainer>
-
         <ServicesContainer>
-          <Service title    ={this.state.isAboutStateRTL? ArabicHTML_Features[0].title : EnglishHTML_Features[0].title} 
-                    content ={this.state.isAboutStateRTL? ArabicHTML_Features[0].content : EnglishHTML_Features[0].content}  
-                    img     ={this.state.isAboutStateRTL? ArabicHTML_Features[0].img : EnglishHTML_Features[0].img}  
-                    isRTL={this.state.isAboutStateRTL}/>
-
-          <Service title    ={this.state.isAboutStateRTL? ArabicHTML_Features[1].title : EnglishHTML_Features[1].title} 
-                    content ={this.state.isAboutStateRTL? ArabicHTML_Features[1].content : EnglishHTML_Features[1].content}  
-                    img     ={this.state.isAboutStateRTL? ArabicHTML_Features[1].img : EnglishHTML_Features[1].img}  
-                    isRTL={this.state.isAboutStateRTL}/>
-
-          <Service title    ={this.state.isAboutStateRTL? ArabicHTML_Features[2].title : EnglishHTML_Features[2].title} 
-                    content ={this.state.isAboutStateRTL? ArabicHTML_Features[2].content : EnglishHTML_Features[2].content}  
-                    img     ={this.state.isAboutStateRTL? ArabicHTML_Features[2].img : EnglishHTML_Features[2].img}  
-                    isRTL={this.state.isAboutStateRTL}/>
-
-          <Service title    ={this.state.isAboutStateRTL? ArabicHTML_Features[3].title : EnglishHTML_Features[3].title} 
-                    content ={this.state.isAboutStateRTL? ArabicHTML_Features[3].content : EnglishHTML_Features[3].content}  
-                    img     ={this.state.isAboutStateRTL? ArabicHTML_Features[3].img : EnglishHTML_Features[3].img}  
-                    isRTL={this.state.isAboutStateRTL}/>         
+          {this.props.isRTL?
+          /*if language is RTL either
+              Display Arabic but first Check is screen small
+                yes -> reverse the order of elements so items display logically
+                no - > display normal so items display logically
+              Display English*/
+            (window.innerWidth < 501 ? 
+              ArabicHTML_Features.slice().reverse().map(
+                (element,index) => <Service key={index} title={element.title} content={element.content} img={element.img} {...this.props}/>)
+              :
+              ArabicHTML_Features.map(
+                (element,index) => <Service key={index} title={element.title} content={element.content} img={element.img} {...this.props}/>)
+            )
+            :
+            EnglishHTML_Features.map(
+              (element,index) => <Service key={index} title={element.title} content={element.content} img={element.img} {...this.props}/>)
+          }
         </ServicesContainer>
-
       </Container>
     )
   }
@@ -124,7 +118,7 @@ class Service extends Component {
     return (
       <ServeStyled>
         <div style={{overflow: "hidden"}}><ServiceImg src={this.props.img}/></div>
-        <GrpSerText isRTL={this.props.isRTL}>
+        <GrpSerText {...this.props}>
           <ServiceText>{this.props.title}</ServiceText>
           <ServiceSubText>{this.props.content}</ServiceSubText>
         </GrpSerText>

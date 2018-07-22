@@ -5,24 +5,20 @@ const ArabicHTML = "©جميع حقوق العرض محفوضة لمنصة ذو�
 const EnglishHTML = "©Copyright 2018 Thoag All Rights Reserved";
 
 export default class Footer extends Component {
-  /* props: isRTL  */
+  //State: none
+  //Props: isRTL from Index
   constructor(props){
     super(props);
-    this.state = {
-      isFooterStateRTL: this.props.isRTL,
-    }
+    console.log("Footer: ");
+    console.log(this.state);
+    console.log(this.props);
   }
-  componentWillReceiveProps(nextProps) {
-    this.setState({ isFooterStateRTL: nextProps.isRTL });
-  }
-
   render() {
     return (
-      <FooterContainer isRTL={this.state.isFooterStateRTL}>
-      <Hr />
-        
+      <FooterContainer isRTL={this.props.isRTL}>
+        <Hr />
         <hr />
-        <p>{this.state.isFooterStateRTL? ArabicHTML : EnglishHTML}</p>
+        <p>{this.props.isRTL? ArabicHTML : EnglishHTML}</p>
       </FooterContainer>
     )
   }

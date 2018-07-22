@@ -36,22 +36,21 @@ const EnglishHTML =
 
 /* FAQ component */
 export default class FAQ extends Component {
-  /* props: isRTL  */
+  //State: none
+  //Props: isRTL from Index
   constructor(props){
     super(props);
-    this.state = {
-      isFaqStateRTL: this.props.isRTL,
-    }
+    console.log("FAQ: ");
+    console.log(this.state);
+    console.log(this.props);
   }
-  componentWillReceiveProps(nextProps) {
-    this.setState({ isFaqStateRTL: nextProps.isRTL });
-  }
+
   render() {
-    if(this.state.isFaqStateRTL){
+    if(this.props.isRTL){
       return (
         <Container id="faq">
           <Text>أسئلة شائعة</Text>
-          {ArabicHTML.map( (index) => <QandA key={index.id} question={index.question} answer={index.answer} isRTL={this.state.isFaqStateRTL}></QandA> )}
+          {ArabicHTML.map( (index) => <QandA key={index.id} question={index.question} answer={index.answer} {...this.props}></QandA> )}
        </Container>
       )
     }
@@ -59,7 +58,7 @@ export default class FAQ extends Component {
       return (
         <Container id="faq">
           <Text>Frequently Asked Questions</Text>
-          {EnglishHTML.map( (index) => <QandA key={index.id} question={index.question} answer={index.answer} isRTL={this.state.isFaqStateRTL}></QandA> )}
+          {EnglishHTML.map( (index) => <QandA key={index.id} question={index.question} answer={index.answer} {...this.props}></QandA> )}
        </Container>
       )
     }
@@ -74,8 +73,8 @@ class QandA extends Component{
     this.state = {
         active: false,
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
+    this.handleClick  = this.handleClick.bind(this);
+    this.handleBlur   = this.handleBlur.bind(this);
   }
   handleClick(event){
     this.setState({active: !this.state.active});
@@ -83,18 +82,16 @@ class QandA extends Component{
   handleBlur(event){
     this.setState({active: false});
   }
-  render(){
-    // let newBackgroundColor  = (this.state.active)? "#C12336"  : "white";
-    
+  render(){   
     return(
       <Box>
-        <Q_Container onMouseDown ={this.handleClick} onBlur ={this.handleBlur}>
-          <Question  isRTL={this.props.isRTL}>
+        <Q_Container onMouseDown ={this.handleClick} onBlur={this.handleBlur}>
+          <Question  {...this.props}>
             {this.props.question}
           </Question>
         </Q_Container>
 
-        <Answer active={this.state.active} isRTL={this.props.isRTL}>{this.props.answer}</Answer>
+        <Answer {...this.props}{...this.state}>{this.props.answer}</Answer>
       </Box>
     )
   }

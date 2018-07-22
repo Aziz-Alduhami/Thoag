@@ -58,6 +58,9 @@ const EnglishHTML_EventType = ["Select your preferred event type", "Outdoor Even
 export default class Modal extends Component {
   constructor(props){
     super(props);
+    console.log("Modal: ");
+    console.log(this.state);
+    console.log(this.props);
   }
   // handleSubmit(event){}
   render() {
@@ -103,7 +106,7 @@ export default class Modal extends Component {
             <Text>{EnglisHTML_Modal.tile}</Text>
             <SubText>{EnglisHTML_Modal.subtitle}</SubText>
           </TextContainer>
-          <form onSubmit={this.handleSubmit} method="POST" method="POST" netlify="true">
+          <form onSubmit={this.handleSubmit} method="POST" netlify="true">
             <input type="hidden" name="form-name" value="Modal" />
           	<Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName} name="name"/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName} name="last"/>

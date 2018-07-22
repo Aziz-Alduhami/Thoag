@@ -25,35 +25,32 @@ submit: "Submit"
 
 /* JoinUs component */
 export default class JoinUs extends Component {
-  /* props: isRTL  */
+  //State: none
+  //Props: isRTL from Index
   constructor(props){
     super(props);
-    this.state = {
-      isJoinUsStateRTL: this.props.isRTL,
-    }
-  }
-  componentWillReceiveProps(nextProps) {
-    this.setState({ isJoinUsStateRTL: nextProps.isRTL });
+    console.log("JoinUs: ");
+    console.log(this.state);
+    console.log(this.props);
   }
   handleSubmit(event){
     //
   }
   render() {
-    if(this.state.isJoinUsStateRTL){
+    if(this.props.isRTL){
       return (
         <Container id="join-us">
           <TextGroup>
             <Text>{ArabicHTML.text}</Text>
             <SubText>{ArabicHTML.subtext}</SubText>
           </TextGroup>
-  
-          <FormContainer isRTL={this.state.isJoinUsStateRTL}>
+          <FormContainer isRTL={this.props.isRTL}>
             <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}} method="POST" netlify="true" >
                 <input type="hidden" name="form-name" value="joinUs" />  
-                <Input placeholder={ArabicHTML.business_name} type="text" isRTL={this.state.isJoinUsStateRTL}/>
-                <Input placeholder={ArabicHTML.email} type="text" isRTL={this.state.isJoinUsStateRTL}/>
-                <Input placeholder={ArabicHTML.mobile} type="text" pattern="" isRTL={this.state.isJoinUsStateRTL}/>
-                <Input placeholder={ArabicHTML.location} type="text" isRTL={this.state.isJoinUsStateRTL}/>
+                <Input placeholder={ArabicHTML.business_name}     type="text" isRTL={this.props.isRTL}/>
+                <Input placeholder={ArabicHTML.email}             type="text" isRTL={this.props.isRTL}/>
+                <Input placeholder={ArabicHTML.mobile}            type="text" isRTL={this.props.isRTL}/>
+                <Input placeholder={ArabicHTML.location}          type="text" isRTL={this.props.isRTL}/>
                 <Submit type="submit" value="أرسل" />
             </form>
           </FormContainer>
@@ -68,14 +65,13 @@ export default class JoinUs extends Component {
             <Text>{EnglishHTML.text}</Text>
             <SubText>{EnglishHTML.subtext}</SubText>
           </TextGroup>
-  
-          <FormContainer isRTL={this.state.isJoinUsStateRTL}>
+          <FormContainer isRTL={this.props.isRTL}>
             <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}  method="POST" netlify="true">
                 <input type="hidden" name="form-name" value="joinUs" />  
-                <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.state.isJoinUsStateRTL} name="name"/>
-                <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.state.isJoinUsStateRTL} name="ema"/>
-                <Input placeholder={EnglishHTML.mobile}           type="text"   isRTL={this.state.isJoinUsStateRTL} name="mob" />
-                <Input placeholder={EnglishHTML.location}         type="text"   isRTL={this.state.isJoinUsStateRTL} name="loc"/>
+                <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.props.isRTL} name="name"/>
+                <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.props.isRTL} name="ema"/>
+                <Input placeholder={EnglishHTML.mobile}           type="text"   isRTL={this.props.isRTL} name="mob" />
+                <Input placeholder={EnglishHTML.location}         type="text"   isRTL={this.props.isRTL} name="loc"/>
                 <Submit type="submit" value="Submit" />
             </form>
           </FormContainer>
