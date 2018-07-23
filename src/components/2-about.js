@@ -78,7 +78,6 @@ export default class About extends Component {
     console.log("About: ");
     console.log(this.state);
     console.log(this.props);
-    console.log(window.innerWidth)
   }
   render() {
     return (
@@ -89,18 +88,8 @@ export default class About extends Component {
         </TextContainer>
         <ServicesContainer>
           {this.props.isRTL?
-          /*if language is RTL either
-              Display Arabic but first Check is screen small
-                yes -> reverse the order of elements so items display logically
-                no - > display normal so items display logically
-              Display English*/
-            (window.innerWidth < 501 ? 
-              ArabicHTML_Features.slice().reverse().map(
-                (element,index) => <Service key={index} title={element.title} content={element.content} img={element.img} {...this.props}/>)
-              :
-              ArabicHTML_Features.map(
-                (element,index) => <Service key={index} title={element.title} content={element.content} img={element.img} {...this.props}/>)
-            )
+            ArabicHTML_Features.map(
+              (element,index) => <Service key={index} title={element.title} content={element.content} img={element.img} {...this.props}/>)
             :
             EnglishHTML_Features.map(
               (element,index) => <Service key={index} title={element.title} content={element.content} img={element.img} {...this.props}/>)
