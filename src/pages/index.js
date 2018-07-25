@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import store from '../store/store'
+import store from '../redux/store/store'
 /**Components */
 import Nav from '../components/0-nav'
 import Main from '../components/1-main'
