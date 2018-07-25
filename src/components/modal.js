@@ -43,7 +43,7 @@ const EnglishHTNL_MenuReq = ["Menu requirements",
                   "BBQ live cooking station"];
 
 const ArabicHTML_SpecialReq = ["خدمات خاصة","خدمة النادل (رجال","خدمة النادل (نساء","تجهيزات طاولات و كراسي","تجهيزات جلسات خارجية"];
-const English_HTML_SpecialReq = ["Special services","Tables and chairs setup","Waiter services","Outdoor setup"];
+const EnglishHTML_SpecialReq = ["Special services","Tables and chairs setup","Waiter services","Outdoor setup"];
 
 const ArabicHTML_HowDidYou = ["كيف تعرفت على خدمة ذوق؟","وسائل التواصل الاجتماعي","عن طريق الاصدقاء","زرت الموقع سابقاً","جربت الخدمة من قبل"];
 const EnglishHTML_HowDidYou = ["How did you hear of us","Social media","Word of mouth","Tried THOAG before"];
@@ -68,29 +68,25 @@ export default class Modal extends Component {
           	<Text>{ArabicHTML_Modal.tile}</Text>
             <SubText>{ArabicHTML_Modal.subtitle}</SubText>
           </TextContainer>
-          <form name="Quotation-form" data-netlify="true" onSubmit={this.handleSubmit} method="POST" action="/">
+          <form name="Quotation-form" data-netlify="true" onSubmit={this.handleSubmit} method="POST">
             <input type="hidden" name="Quotation-form-hidden" value="Modal-hidden" />
-          	<Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.firstName}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.lastName}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.email}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.mobile}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.timing}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.budget}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.guests}/>
-            {/* disabled={index == 0? true: false} */}
-						<Select name="menu"				>{ ArabicHTML_MenuReq.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
-            <Select name="speial-req"	>{ ArabicHTML_SpecialReq.map( (element,index) => <option key={index} value={element}>{element}</option> ) }</Select>
-        		<Select name="how"				>{ ArabicHTML_HowDidYou.map((element,index)	  => <option key={index} value={element}>{element}</option> ) }</Select>
-            <Select name="location"		>{ ArabicHTML_Location.map( (element,index) 	=> <option key={index} value={element}>{element}</option> ) }</Select>
-
-            <EventType isRTL={this.props.isRTL}>
+          	<Input  name="First Name"     type="text"           isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.firstName}/>
+            <Input  name="Last Name"      type="text"           isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.lastName}/>
+            <Input  name="Email"          type="email"          isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.email}/>
+            <Input  name="Mobile"         type="number"         isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.mobile}/>
+            <Input  name="Date-Time"      type="datetime-local" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.timing}/>
+            <Input  name="Budget"         type="number" min="0" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.budget}/>
+            <Input  name="NumberOfGuests" type="number" min="0" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.guests}/> 
+            <Select name="Menu"				    >{ArabicHTML_MenuReq.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
+            <Select name="SpecialServices">{ArabicHTML_SpecialReq.map( (element,index) => <option key={index} value={element}>{element}</option> ) }</Select>
+        		<Select name="HowDidYouHear"  >{ArabicHTML_HowDidYou.map((element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
+            <Select name="Location"		    >{ArabicHTML_Location.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
+						<EventType isRTL={this.props.isRTL}>
 							<Label>{ArabicHTML_EventType[0]}</Label><br />
-							<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {ArabicHTML_EventType[1]} </Label><br />								
-							<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {ArabicHTML_EventType[2]} </Label>
-						</EventType> 
-
-						<TextArea rows="3" placeholder={ArabicHTML_Modal.details}/>
-
+							<Label><Checkbox name="OutsideEvent"  type="checkbox" isRTL={this.props.isRTL}/> {ArabicHTML_EventType[1]} </Label>	<br />								
+							<Label><Checkbox name="IndoorEvent"   type="checkbox" isRTL={this.props.isRTL}/> {ArabicHTML_EventType[2]} </Label>
+						</EventType>           	
+            <TextArea name="Details" rows="3" placeholder={ArabicHTML_Modal.details}/>
             <Submit type="submit" value="اطلب" />
           </form>
         </div>
@@ -103,29 +99,25 @@ export default class Modal extends Component {
             <Text>{EnglisHTML_Modal.tile}</Text>
             <SubText>{EnglisHTML_Modal.subtitle}</SubText>
           </TextContainer>
-          <form name="Quotation-form" data-netlify="true" onSubmit={this.handleSubmit} method="POST" action="/">
+          <form name="Quotation-form" data-netlify="true" onSubmit={this.handleSubmit} method="POST">
             <input type="hidden" name="Quotation-form-hidden" value="Modal-hidden" />
-          	<Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName} name="name"/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName} name="last"/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email} name="email"/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.mobile}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.timing}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.budget}/>
-            <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.guests}/>
-        
-            <Select name="menu"				>{ EnglishHTNL_MenuReq.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
-            <Select name="speial-req"	>{ English_HTML_SpecialReq.map( (element,index) => <option key={index} value={element}>{element}</option> ) }</Select>
-        		<Select name="how"				>{ EnglishHTML_HowDidYou.map((element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
-            <Select name="location"		>{ EnglishHTML_Location.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
-
+          	<Input  name="First Name"     type="text"           isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName}/>
+            <Input  name="Last Name"      type="text"           isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName}/>
+            <Input  name="Email"          type="email"          isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email}/>
+            <Input  name="Mobile"         type="number"         isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.mobile}/>
+            <Input  name="Date-Time"      type="datetime-local" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.timing}/>
+            <Input  name="Budget"         type="number" min="0" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.budget}/>
+            <Input  name="NumberOfGuests" type="number" min="0" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.guests}/> 
+            <Select name="Menu"				    >{EnglishHTNL_MenuReq.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
+            <Select name="SpecialServices">{EnglishHTML_SpecialReq.map( (element,index) => <option key={index} value={element}>{element}</option> ) }</Select>
+        		<Select name="HowDidYouHear"  >{EnglishHTML_HowDidYou.map((element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
+            <Select name="Location"		    >{EnglishHTML_Location.map( (element,index) 		=> <option key={index} value={element}>{element}</option> ) }</Select>
 						<EventType isRTL={this.props.isRTL}>
 							<Label>{EnglishHTML_EventType[0]}</Label><br />
-							<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[1]} </Label>	<br />								
-							<Label><Checkbox type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[2]} </Label>
+							<Label><Checkbox name="OutsideEvent"  type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[1]} </Label>	<br />								
+							<Label><Checkbox name="IndoorEvent"   type="checkbox" isRTL={this.props.isRTL}/> {EnglishHTML_EventType[2]} </Label>
 						</EventType>           	
-
-            <TextArea rows="3" placeholder={EnglisHTML_Modal.details}/>
-
+            <TextArea name="Details" rows="3" placeholder={EnglisHTML_Modal.details}/>
             <Submit type="submit" value="Request" />
           </form>
         </div>
