@@ -14,7 +14,7 @@ const EnglisHTML_Modal = { tile: "Let's Work Together",
                   subtitle: "Tell us about you event, how can we help you get the best catering offer?",
                   information: "Providing us with your information allows us to provide you with the quotation effectively. It also allows our team to clarify any point on your added details if needed. We look forward to exceed your expectation",
                   firstName: "First Name *", lastName: "Last Name *", email: "Email", mobile: "Mobile number", timing: "Date and time",
-                  budget: "Budget(SAR)", guests: "Number of guests", menu: EnglishHTNL_MenuReq, special: English_HTML_SpecialReq, how: EnglishHTML_HowDidYou,
+                  budget: "Budget(SAR)", guests: "Number of guests", menu: EnglishHTNL_MenuReq, special: EnglishHTML_SpecialReq, how: EnglishHTML_HowDidYou,
                   location: EnglishHTML_Location, type: EnglishHTML_EventType, details: "Please share any additional details about your request. This is very  useful to allow us to provide the most suitable recommendations."
                 };
 const ArabicHTML_MenuReq =["متطلبات التقديم",
