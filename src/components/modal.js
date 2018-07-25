@@ -59,7 +59,7 @@ export default class Modal extends Component {
   constructor(props){
     super(props);
   }
-  // handleSubmit(event){}
+  handleSubmit(event){}
   render() {
     if(this.props.isRTL){
       return (
@@ -68,8 +68,8 @@ export default class Modal extends Component {
           	<Text>{ArabicHTML_Modal.tile}</Text>
             <SubText>{ArabicHTML_Modal.subtitle}</SubText>
           </TextContainer>
-          <form onSubmit={this.handleSubmit} method="POST" >
-            <input type="hidden" name="form-name" value="Modal" />
+          <form name="Quotation-form" data-netlify="true" onSubmit={this.handleSubmit} method="POST" action="/">
+            <input type="hidden" name="Quotation-form-hidden" value="Modal-hidden" />
           	<Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.firstName}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.lastName}/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.email}/>
@@ -103,8 +103,8 @@ export default class Modal extends Component {
             <Text>{EnglisHTML_Modal.tile}</Text>
             <SubText>{EnglisHTML_Modal.subtitle}</SubText>
           </TextContainer>
-          <form onSubmit={this.handleSubmit} method="POST">
-            <input type="hidden" name="form-name" value="Modal" />
+          <form name="Quotation-form" data-netlify="true" onSubmit={this.handleSubmit} method="POST" action="/">
+            <input type="hidden" name="Quotation-form-hidden" value="Modal-hidden" />
           	<Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName} name="name"/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName} name="last"/>
             <Input type="text" isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email} name="email"/>
