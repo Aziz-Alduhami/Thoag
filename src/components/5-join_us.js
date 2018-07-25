@@ -66,7 +66,7 @@ class JoinUs extends Component {
           </TextGroup>
           <FormContainer isRTL={this.props.isRTL}>
             <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}  method="POST">
-                <input type="hidden" name="form-name" value="joinUs" />  
+                <input type="hidden" name="form-name" value="join-us-form" />  
                 <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.props.isRTL} name="name"/>
                 <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.props.isRTL} name="ema"/>
                 <Input placeholder={EnglishHTML.mobile}           type="text"   isRTL={this.props.isRTL} name="mob" />
