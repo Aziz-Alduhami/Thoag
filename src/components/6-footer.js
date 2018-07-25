@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import styled from "styled-components"
+import {connect} from 'react-redux';
+
 
 const ArabicHTML = "©جميع حقوق العرض محفوضة لمنصة ذوق ٢٠١٨ 2018"
 const EnglishHTML = "©Copyright 2018 Thoag All Rights Reserved";
 
-export default class Footer extends Component {
+class Footer extends Component {
   //State: none
   //Props: isRTL from Index
-  constructor(props){
-    super(props);
-    console.log("Footer: ");
-    console.log(this.state);
-    console.log(this.props);
-  }
   render() {
     return (
       <FooterContainer isRTL={this.props.isRTL}>
@@ -43,3 +39,9 @@ const Hr = styled.hr`
   background-color: #C12336;
   height:5px;
 `;
+
+const mapStateToProps = (state) => ({
+	isRTL: state.isRTL,
+});
+
+export default connect(mapStateToProps)(Footer);

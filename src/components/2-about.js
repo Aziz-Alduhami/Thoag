@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
+import {connect} from 'react-redux'
 /**Components */
 import {H1, P} from '../styles/Mystyles'
 /**Images */
@@ -70,15 +71,7 @@ const EnglishHTML_Features =[{
 
 
 /* About component */
-export default class About extends Component {
-  //State: none
-  //Props: isRTL from Index
-  constructor(props){
-    super(props);
-    console.log("About: ");
-    console.log(this.state);
-    console.log(this.props);
-  }
+class About extends Component {
   render() {
     return (
       <Container id="about">
@@ -193,3 +186,10 @@ const ServiceText = styled(H1)`
 const ServiceSubText = styled(P)`
   font-size:            large;
 `;
+
+
+const mapStateToProps = (state) => ({
+	isRTL: state.isRTL,
+});
+
+export default connect(mapStateToProps)(About);

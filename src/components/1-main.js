@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
+import {connect} from 'react-redux'
 /**Components */
 import Modal from './modal'
 import {ImgButton, H1, P} from '../styles/Mystyles'
@@ -23,9 +24,7 @@ const iOS_URL = "https://itunes.apple.com/sa/app/thoag-%D8%B0%D9%88%D9%82/id1344
 const Android_URL = "";
 
 //Main component
-export default class MainSection extends Component {
-  //State: isModalOpen
-  //Props: isRTL from Index
+class MainSection extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -194,3 +193,10 @@ const Close = styled.span`
       padding-left:        2vw;
     }
 `;
+
+
+const mapStateToProps = (state) => ({
+	isRTL: state.isRTL,
+});
+
+export default connect(mapStateToProps)(MainSection);

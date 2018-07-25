@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import styled from "styled-components";
+import {connect} from 'react-redux';
 /**Components */
 import {H1, P} from '../styles/Mystyles'
 
@@ -35,16 +36,9 @@ const EnglishHTML =
 
 
 /* FAQ component */
-export default class FAQ extends Component {
+class FAQ extends Component {
   //State: none
   //Props: isRTL from Index
-  constructor(props){
-    super(props);
-    console.log("FAQ: ");
-    console.log(this.state);
-    console.log(this.props);
-  }
-
   render() {
     if(this.props.isRTL){
       return (
@@ -163,3 +157,10 @@ const Answer = styled(P).attrs({
     text-align:             center;
   }
 `;
+
+
+const mapStateToProps = (state) => ({
+	isRTL: state.isRTL,
+});
+
+export default connect(mapStateToProps)(FAQ);

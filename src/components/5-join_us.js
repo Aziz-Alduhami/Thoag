@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import styled from "styled-components";
+import {connect} from 'react-redux';
+
 /**Components */
 import {H1, P, Input, Submit} from '../styles/Mystyles'
 
@@ -24,14 +26,11 @@ submit: "Submit"
 
 
 /* JoinUs component */
-export default class JoinUs extends Component {
+class JoinUs extends Component {
   //State: none
   //Props: isRTL from Index
   constructor(props){
     super(props);
-    console.log("JoinUs: ");
-    console.log(this.state);
-    console.log(this.props);
   }
   handleSubmit(event){
     //
@@ -45,7 +44,7 @@ export default class JoinUs extends Component {
             <SubText>{ArabicHTML.subtext}</SubText>
           </TextGroup>
           <FormContainer isRTL={this.props.isRTL}>
-            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}} method="POST" netlify="true" >
+            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}} method="POST" >
                 <input type="hidden" name="form-name" value="joinUs" />  
                 <Input placeholder={ArabicHTML.business_name}     type="text" isRTL={this.props.isRTL}/>
                 <Input placeholder={ArabicHTML.email}             type="text" isRTL={this.props.isRTL}/>
@@ -66,7 +65,7 @@ export default class JoinUs extends Component {
             <SubText>{EnglishHTML.subtext}</SubText>
           </TextGroup>
           <FormContainer isRTL={this.props.isRTL}>
-            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}  method="POST" netlify="true">
+            <form onSubmit={this.handleSubmit} style={{marginBottom: "-24px"}}  method="POST">
                 <input type="hidden" name="form-name" value="joinUs" />  
                 <Input placeholder={EnglishHTML.business_name}    type="text"   isRTL={this.props.isRTL} name="name"/>
                 <Input placeholder={EnglishHTML.email}            type="text"   isRTL={this.props.isRTL} name="ema"/>
@@ -132,3 +131,8 @@ const FormContainer = styled.div`
 `;
 
 
+const mapStateToProps = (state) => ({
+	isRTL: state.isRTL,
+});
+
+export default connect(mapStateToProps)(JoinUs);
