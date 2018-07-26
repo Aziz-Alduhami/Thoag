@@ -69,7 +69,6 @@ export default class Modal extends Component {
             <SubText>{ArabicHTML_Modal.subtitle}</SubText>
           </TextContainer>
           <form name="Quotation-form" data-netlify="true" onSubmit={this.handleSubmit} method="POST">
-            <input type="hidden" name="form-name" value="Quotation-form" />  
           	<Input  name="First Name"     type="text"           isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.firstName}/>
             <Input  name="Last Name"      type="text"           isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.lastName}/>
             <Input  name="Email"          type="email"          isRTL={this.props.isRTL} placeholder={ArabicHTML_Modal.email}/>
@@ -100,7 +99,6 @@ export default class Modal extends Component {
             <SubText>{EnglisHTML_Modal.subtitle}</SubText>
           </TextContainer>
           <form name="Quotation-form" data-netlify="true" onSubmit={this.handleSubmit} method="POST">
-            <input type="hidden" name="form-name" value="Quotation-form" />  
           	<Input  name="First Name"     type="text"           isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.firstName}/>
             <Input  name="Last Name"      type="text"           isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.lastName}/>
             <Input  name="Email"          type="email"          isRTL={this.props.isRTL} placeholder={EnglisHTML_Modal.email}/>
