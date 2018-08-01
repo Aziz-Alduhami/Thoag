@@ -138,7 +138,7 @@ export default class Modal extends Component {
       data: data,
       headers: {
         crossdomain: true,
-        accept: json,
+        accept: 'json',
       }
     }).then(function (response) {
       console.log(response);
