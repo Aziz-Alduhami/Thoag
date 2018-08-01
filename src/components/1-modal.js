@@ -130,23 +130,35 @@ export default class Modal extends Component {
     }
     console.log(data);
     const formUrl = 'http://ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form'
+
     
-    //axios
-    axios({
-      method: 'post', //you can set what request you want to be
-      url: formUrl,
-      data: data,
-      headers: {
-        crossdomain: true,
-        accept: 'json',
-      }
-    }).then(function (response) {
+
+    axios.post(formUrl, {data})
+    .then(function (response) {
       console.log(response);
       return response
     })
     .catch(function (error) {
       console.log(error);
     });
+
+    
+    // //axios
+    // axios({
+    //   method: 'post', //you can set what request you want to be
+    //   url: formUrl,
+    //   data: data,
+    //   headers: {
+    //     crossdomain: true,
+    //     accept: 'json',
+    //   }
+    // }).then(function (response) {
+    //   console.log(response);
+    //   return response
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
     //SUPER AGENT
     // request
