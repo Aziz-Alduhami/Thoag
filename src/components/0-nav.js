@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import {changeLanguage} from '../redux/actions/actions'
+/*Redux */
 import {connect} from 'react-redux'
+/*actions */
+import {changeLanguage} from '../redux/actions/actions'
+/*Binds dispatch to an action */
 import {bindActionCreators} from 'redux';
-
 /* Components */
-import {Nav, Img, Right, Close, A} from '../styles/NavStyled'
+import {Nav,Img,Right,A,Close} from '../styles/0-nav-Styled'
 
 
 
@@ -16,7 +18,7 @@ const EnglishHTML= {home:"Main" , about: "About Us" , faq:"FAQ" ,app_preview: "A
 //Navigation component: the Nav bar
 export class Navigation extends Component {
   //State: isScrolling --> indicates if the user is scrolling, isSmallScren --> indicaes if the screen is less than 500px wide
-  //Props: isRTL from Index
+  //Props: isRTL and function changelanguage from store
   constructor(props){
     super(props);
     this.state ={
@@ -39,18 +41,19 @@ export class Navigation extends Component {
     this.setState({ openNav: !this.state.openNav });
   }
   render() {
+    let NavHTML = (this.props.isRTL)? ArabicHTML : EnglishHTML;
     return (
         <Nav {...this.props}{...this.state}>
-          <a href="#main"><Img {...this.props}{...this.state}/>></a>
+          <A href="#main"><Img {...this.props}{...this.state} /></A>
           <Right {...this.props}>
             <Close {...this.props} onClick={this.handleSmallScreen} > ">" </Close>
+            <A  {...this.props} href="#main"       >{NavHTML.home }</A>
+            <A  {...this.props} href="#about"      >{NavHTML.about}</A>
+            <A  {...this.props} href="#app-preview">{NavHTML.app_preview}</A>
+            <A  {...this.props} href="#join-us"    >{NavHTML.joinUs}</A>
+            <A  {...this.props} href="#faq"        >{NavHTML.faq}</A>
             <A  {...this.props} onClick={() => this.props.changeLanguage(true)}  >العربية</A>
             <A  {...this.props} onClick={() => this.props.changeLanguage(false)} >English</A>
-            <A  {...this.props} href="#join-us"    >{this.props.isRTL? ArabicHTML.joinUs: EnglishHTML.joinUs}</A>
-            <A  {...this.props} href="#app-preview">{this.props.isRTL? ArabicHTML.app_preview: EnglishHTML.app_preview}</A>
-            <A  {...this.props} href="#faq"        >{this.props.isRTL? ArabicHTML.faq   : EnglishHTML.faq}</A>
-            <A  {...this.props} href="#about"      >{this.props.isRTL? ArabicHTML.about : EnglishHTML.about}</A>
-            <A  {...this.props} href="#main"       >{this.props.isRTL? ArabicHTML.home  : EnglishHTML.home }</A>
           </Right>
         </Nav>
     )

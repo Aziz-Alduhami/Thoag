@@ -1,23 +1,28 @@
 import styled from "styled-components";
+/* Images */
 import LogoImage from '../images/nav/logo1.png'
+/* Theme */
+import Theme from "./Theme";
 
-let theme = "rgb(33, 37, 41)";
+
+
+
+
+///HEEEREREERERERERERERERERERRE
 
 export const Nav = styled.div`
-  /**If the user is scrolling give the nav a color */
-  background-color:   ${props => props.isScrolling? theme : "rgba(0,0,0,0)"};
-  box-sizing:         border-box;
-  padding:            5px 10%;
-  /*IF the user is scrolling shrink the van size */
+  background-color:   ${props => props.isScrolling? Theme.Nav.NavBar.Black : Theme.Nav.NavBar.Transperant};
+  transition:         background-color 0.14s step-start;
   max-height:         ${props => props.isScrolling? "50px" : "200px"};
-  transition:         max-height 0.25s ease-in;
+  transition:         max-height 0.25s step-start;
   overflow:           hidden;
   position:           fixed;
+  box-sizing:         border-box;
+  padding:            5px 10%;
   width:              100%;
   top:                0;
-  transition:         background-color 0.5s ease;
-  
   z-index:            10;
+
   @media screen and (max-width: 500px) {
     position: fixed;
     float: none;
@@ -26,7 +31,12 @@ export const Nav = styled.div`
     background-color: black;
     max-height: ${props => props.openNav? "400px" : "50px"};
   }
+
+  box-shadow:   ${props => props.isScrolling? "0px 0px 49px 1px rgba(0,0,0,0.75)" : "0px 0px 49px 1px rgba(0,0,0,0)"};
+  -moz-box-shadow:   ${props => props.isScrolling? "0px 0px 49px 1px rgba(0,0,0,0.75)" : "0px 0px 49px 1px rgba(0,0,0,0)"};
+  -webkit-box-shadow:   ${props => props.isScrolling? "0px 0px 49px 1px rgba(0,0,0,0.75)" : "0px 0px 49px 1px rgba(0,0,0,0)"};
 `;
+
 export const Img = styled.img.attrs({
   src:                LogoImage,
 })`
@@ -38,12 +48,13 @@ export const Img = styled.img.attrs({
     max-height:         ${props => props.isScrolling? "45px" : "60px"};
   }
   @media screen and (max-width: 800px){
-    display: none;
+    display:            none;
   }
 `;
 
 export const Right = styled.div`
   box-sizing:         border-box;
+	margin-top:					7px;
   float:              ${props => props.isRTL ? 'left' : 'right'};
   direction:          ${props => props.isRTL ? 'rtl' : 'ltr'};
 
@@ -54,10 +65,10 @@ export const Right = styled.div`
 `;
 
 export const A = styled.a`
-  float:              ${props => props.isRTL ? 'left' : 'right'};
   box-sizing:         border-box;
   color:              black;
   text-align:         center;
+	
   padding:            10px;
   text-decoration:    none;
 

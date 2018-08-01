@@ -15,7 +15,7 @@ injectGlobal`
 export const H1 = styled.h1`
 	color:            rgb(54, 54, 54);
 	${'' /* display:          inline-block; */}
-	font-family:      "Noto Sans", sans-serif, 'Tajawal';
+	font-family:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
 	font-size:        xx-large;
 	font-weight:      700;
 	left:             0;
