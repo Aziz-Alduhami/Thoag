@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import request from 'superagent';
 /**Components */
-import { H1, P, Input, Select, Submit } from "../styles/GenericComponents";
+import {Input, Select, Submit } from "../styles/GenericComponents";
 import {TextContainer, Text, SubText, EventType, Label, Checkbox, TextArea} from '../styles/1-modal-Styled'
 
 const ArabicHTML_Modal = {

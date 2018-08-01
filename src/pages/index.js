@@ -11,7 +11,7 @@ import FAQ from '../components/5-faq'
 import JoinUs from '../components/6-join_us'
 import Footer from '../components/7-footer'
 
-import { ChasingDots } from 'styled-spinkit'
+// import { ChasingDots } from 'styled-spinkit'
 
 //IndexPage component: it the container of all other components
 export default class IndexPage extends Component {
