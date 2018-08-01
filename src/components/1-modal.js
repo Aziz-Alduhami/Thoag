@@ -125,9 +125,9 @@ export default class Modal extends Component {
 
     let data = this.state;
 
-    if(this.validateForm(data))
+    if(!this.validateForm(data)){
       return;
-    
+    }
     console.log(data);
     const formUrl = 'http://ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form'
     
