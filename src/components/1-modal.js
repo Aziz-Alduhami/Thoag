@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import request from 'superagent';
+// import request from 'superagent';
+import axios from 'axios'
 /**Components */
 import {Input, Select, Submit } from "../styles/GenericComponents";
 import {TextContainer, Text, SubText, EventType, Label, Checkbox, TextArea} from '../styles/1-modal-Styled'
@@ -121,21 +122,44 @@ export default class Modal extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+
     let data = this.state;
+
     if(this.validateForm(data))
       return;
     
     console.log(data);
-
-    request
-    .post('http://ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form')
-    .send(data) // sends a JSON post body
-    .set('Access-Control-Allow-Origin', '*')
-    .set('accept', 'json')
-    .end((err, res) => {
-      console.log(err);
-      console.log(res);
+    const formUrl = 'http://ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form'
+    
+    //axios
+    axios({
+      method: 'post', //you can set what request you want to be
+      url: formUrl,
+      data: data,
+      headers: {
+        crossdomain: true,
+        accept: json,
+      }
+    }).then(function (response) {
+      console.log(response);
+      return response
+    })
+    .catch(function (error) {
+      console.log(error);
     });
+
+    //SUPER AGENT
+    // request
+    // .post('http://ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form')
+    // .send(data) // sends a JSON post body
+    // .set('Access-Control-Allow-Origin', '*')
+    // .set('accept', 'json')
+    // .end((err, res) => {
+    //   console.log(err);
+    //   console.log(res);
+    // });
+
+
     // var request = new XMLHttpRequest();
     // request.open('POST', 'http://ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form“', true);
     // request.setRequestHeader('Access-Control-Allow-Origin', '*');
