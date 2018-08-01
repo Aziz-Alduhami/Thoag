@@ -133,14 +133,14 @@ export default class Modal extends Component {
 
     
 
-    axios.post(formUrl, {data})
-    .then(function (response) {
-      console.log(response);
-      return response
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // axios.post(formUrl, {data})
+    // .then(function (response) {
+    //   console.log(response);
+    //   return response
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
     
     // //axios
@@ -183,16 +183,16 @@ export default class Modal extends Component {
     // console.log(request.responseURL);
     // console.log(request.status);
 
-    // fetch("http://ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form", {
-    //   method: 'POST',
-    //   body: data,
-    // }).then(function(response) {
-    //   console.log("RESPONSE INCOMING !@#!@#!@#");
-    //   console.log(response);
-    //   console.log(response.json());
-    //   console.log(response.json());
-    //   return response.json();
-    // });
+    fetch(formUrl, {
+      method: 'POST',
+      body: data,
+    }).then(function (response) {
+      console.log(response);
+      return response
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
   validateForm(data){
     if(typeof data.first_name == undefined || data.first_name == ""){alert("Please enter a valid first name"); return false;};
