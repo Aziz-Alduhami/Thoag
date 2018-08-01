@@ -129,7 +129,7 @@ export default class Modal extends Component {
       return;
     }
     console.log(data);
-    const formUrl = 'http://ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form'
+    const formUrl = 'ec2-13-59-12-113.us-east-2.compute.amazonaws.com/thoag/api/v1/thoag-form'
     
     //axios
     axios({
