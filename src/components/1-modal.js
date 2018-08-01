@@ -183,23 +183,23 @@ export default class Modal extends Component {
     // });
   }
   validateForm(data){
-    // if(typeof data.first_name == undefined || data.first_name == ""){alert("Please enter a valid first name"); return false;};
-    // if(typeof data.last_name == undefined || data.last_name == ""){alert("Please enter a valid last name"); return false;};
-    // if(typeof data.email == undefined || data.email == ""){alert("Please enter a valid email"); return false;};
-    // if(typeof data.mobile_number == undefined || data.mobile_number == ""){alert("Please enter a valid mobile number"); return false;};
-    // if(typeof data.date_time == undefined || data.date_time == ""){alert("Please enter a valid date and time"); return false;};
-    // if(typeof data.budget == undefined || data.budget == ""){alert("Please enter a budget"); return false;};
-    // if(typeof data.number_of_guests == undefined || data.number_of_guests == ""){alert("Please enter the guests count"); return false;};
-    // if(typeof data.menu_requirements == undefined || data.menu_requirements == ""){alert("Please select a menu"); return false;};
-    // if(typeof data.special_services == undefined || data.special_services == ""){alert("Please select a service"); return false;};
-    // if(typeof data.hear_by == undefined || data.hear_by == ""){alert("Please select a how_did_you_hear"); return false;};
-    // if(typeof data.location == undefined || data.location == ""){alert("Please select a location"); return false;}; 
+    if(typeof data.first_name == undefined || data.first_name == ""){alert("Please enter a valid first name"); return false;};
+    if(typeof data.last_name == undefined || data.last_name == ""){alert("Please enter a valid last name"); return false;};
+    if(typeof data.email == undefined || data.email == ""){alert("Please enter a valid email"); return false;};
+    if(typeof data.mobile_number == undefined || data.mobile_number == ""){alert("Please enter a valid mobile number"); return false;};
+    if(typeof data.date_time == undefined || data.date_time == ""){alert("Please enter a valid date and time"); return false;};
+    if(typeof data.budget == undefined || data.budget == ""){alert("Please enter a budget"); return false;};
+    if(typeof data.number_of_guests == undefined || data.number_of_guests == ""){alert("Please enter the guests count"); return false;};
+    if(typeof data.menu_requirements == undefined || data.menu_requirements == ""){alert("Please select a menu"); return false;};
+    if(typeof data.special_services == undefined || data.special_services == ""){alert("Please select a service"); return false;};
+    if(typeof data.hear_by == undefined || data.hear_by == ""){alert("Please select a how_did_you_hear"); return false;};
+    if(typeof data.location == undefined || data.location == ""){alert("Please select a location"); return false;}; 
     
-    for (property in data){
-      if(typeof data.property == undefined){
-        return false;
-      }
-    }
+    // for (property in data){
+    //   if(typeof data.property == undefined){
+    //     return false;
+    //   }
+    // }
     console.log('Validation passed !');
     return true;
   }
